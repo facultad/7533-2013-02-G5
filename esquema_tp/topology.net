@@ -1,0 +1,375 @@
+autostart = False
+version = 0.8.5
+[127.0.0.1:7202]
+    workingdir = /tmp
+    udp = 10200
+    [[3640]]
+        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ROUTER Internet]]
+        model = 3640
+        console = 2031
+        aux = 2531
+        slot0 = NM-4E
+        e0/0 = R6 e0/1
+        e0/1 = R11 e0/1
+        e0/2 = R12 e0/1
+        x = 619.686291501
+        y = 24.686291501
+        z = 1.0
+[127.0.0.1:7203]
+    workingdir = /tmp
+    udp = 10300
+    [[3640]]
+        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ROUTER FR]]
+        model = 3640
+        console = 2115
+        aux = 2549
+        slot0 = NM-4E
+        e0/0 = R1 e0/1
+        e0/1 = R7 e0/2
+        e0/2 = R13 e0/2
+        symbol = frame_relay_switch
+        x = -458.678282275
+        y = 45.882250994
+        z = 1.0
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10000
+    [[3640]]
+        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ETHSW b3]]
+        1 = access 1 HUB2 3
+        2 = access 1 HUB3 1
+        x = -274.502092041
+        y = -249.345237792
+        z = 1.0
+    [[ETHSW b5]]
+        1 = access 1 HUB4 3
+        2 = access 1 SW4 1
+        x = 248.756926037
+        y = -256.416305603
+        z = 1.0
+    [[ETHSW b1]]
+        1 = access 1 HUB1 3
+        2 = access 1 HUB2 1
+        x = -435.722438152
+        y = -243.688383542
+        z = 1.0
+        hx = 17.0549896247
+        hy = -26.4142135624
+    [[ETHSW b2]]
+        1 = access 1 HUB3 2
+        2 = access 1 R5 e0/0
+        x = -121.767027305
+        y = -247.931024229
+        z = 1.0
+    [[Hub HUB3]]
+        1 = b3 2
+        2 = b2 1
+        3 = nio_gen_eth:lo
+        4 = R4 e0/0
+        x = -164.693434176
+        y = -324.298556597
+        z = 1.0
+    [[Hub HUB2]]
+        1 = b1 2
+        2 = R3 e0/0
+        3 = b3 1
+        x = -349.955410847
+        y = -177.220346111
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 e0/0
+        2 = R2 e0/0
+        3 = b1 1
+        x = -562.087445203
+        y = -245.102597104
+        z = 1.0
+    [[Hub HUB5]]
+        1 = R7 e0/1
+        2 = R8 e0/0
+        3 = R9 e0/0
+        4 = nio_gen_eth:lo
+        5 = nio_gen_eth:lo
+        x = -126.509667992
+        y = -72.5685424949
+        z = 1.0
+    [[Hub HUB4]]
+        1 = R4 e0/1
+        2 = R5 e0/1
+        3 = b5 1
+        4 = R6 e0/0
+        x = 112.492424049
+        y = -263.487373415
+        z = 1.0
+    [[ROUTER R4]]
+        model = 3640
+        console = 2016
+        aux = 2516
+        slot0 = NM-4E
+        e0/0 = HUB3 4
+        e0/1 = HUB4 1
+        x = -7.54415587728
+        y = -333.126983722
+        z = 1.0
+    [[ROUTER R5]]
+        model = 3640
+        console = 2017
+        aux = 2517
+        slot0 = NM-4E
+        e0/0 = b2 2
+        e0/1 = HUB4 2
+        x = -10.372583002
+        y = -197.362481734
+        z = 1.0
+    [[ROUTER R6]]
+        model = 3640
+        console = 2020
+        aux = 2520
+        slot0 = NM-4E
+        e0/0 = HUB4 4
+        e0/1 = Internet e0/0
+        x = 406.185858225
+        y = -148.936074863
+        z = 1.0
+    [[ROUTER R7]]
+        model = 3640
+        console = 2021
+        aux = 2521
+        slot0 = NM-4E
+        e0/0 = R3 e0/1
+        e0/1 = HUB5 1
+        e0/2 = FR e0/1
+        x = -216.847763109
+        y = -2.20101012678
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3640
+        console = 2013
+        aux = 2513
+        slot0 = NM-4E
+        e0/0 = HUB1 1
+        e0/1 = FR e0/0
+        x = -679.295598005
+        y = -187.462986798
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3640
+        console = 2018
+        aux = 2518
+        slot0 = NM-4E
+        e0/0 = HUB1 2
+        e0/1 = nio_gen_eth:lo
+        x = -559.087445203
+        y = -344.440692221
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3640
+        console = 2019
+        aux = 2519
+        slot0 = NM-4E
+        e0/0 = HUB2 2
+        e0/1 = R7 e0/0
+        x = -348.369624409
+        y = -87.0538238692
+        z = 1.0
+    [[ROUTER R8]]
+        model = 3640
+        console = 2022
+        aux = 2522
+        slot0 = NM-4E
+        e0/0 = HUB5 2
+        x = -64.1126983722
+        y = 20.4264068712
+        z = 1.0
+    [[ETHSW SW4]]
+        1 = access 1 b5 2
+        2 = access 1 nio_gen_eth:lo
+        x = 252.999566724
+        y = -365.310749906
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = /tmp
+    udp = 10100
+    [[3640]]
+        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[Hub HUB8]]
+        1 = R14 e0/1
+        2 = R15 e0/1
+        3 = nio_gen_eth:lo
+        4 = R16 e0/0
+        x = 34.124891681
+        y = 373.49451609
+        z = 1.0
+    [[Hub HUB7]]
+        1 = R13 e0/0
+        2 = R14 e0/0
+        3 = R15 e0/0
+        4 = nio_gen_eth:lo
+        5 = nio_gen_eth:lo
+        x = -60.0416305603
+        y = 198.960461481
+        z = 1.0
+    [[Hub HUB6]]
+        1 = R9 e0/1
+        2 = nio_gen_eth:wlan0
+        3 = R10 e0/0
+        4 = R11 e0/0
+        5 = nio_gen_eth:lo
+        x = 200.173664916
+        y = -41.4558441227
+        z = 1.0
+    [[ROUTER R16]]
+        model = 3640
+        console = 2030
+        aux = 2530
+        slot0 = NM-4E
+        e0/0 = HUB8 4
+        e0/1 = R12 e0/0
+        x = 240.653895657
+        y = 281.788888605
+        z = 1.0
+    [[ROUTER R14]]
+        model = 3640
+        console = 2028
+        aux = 2528
+        slot0 = NM-4E
+        e0/0 = HUB7 2
+        e0/1 = HUB8 1
+        x = -55.627416998
+        y = 279.813275223
+        z = 1.0
+    [[ROUTER R15]]
+        model = 3640
+        console = 2029
+        aux = 2529
+        slot0 = NM-4E
+        e0/0 = HUB7 3
+        e0/1 = HUB8 2
+        x = 76.7228714275
+        y = 277.813275223
+        z = 1.0
+    [[ROUTER R12]]
+        model = 3640
+        console = 2026
+        aux = 2526
+        slot0 = NM-4E
+        e0/0 = R16 e0/1
+        e0/1 = Internet e0/2
+        x = 394.903679019
+        y = 145.036579926
+        z = 1.0
+    [[ROUTER R13]]
+        model = 3640
+        console = 2027
+        aux = 2527
+        slot0 = NM-4E
+        e0/0 = HUB7 1
+        e0/1 = R9 e0/2
+        e0/2 = FR e0/2
+        x = -55.627416998
+        y = 122.249783362
+        z = 1.0
+    [[ROUTER R10]]
+        model = 3640
+        console = 2024
+        aux = 2524
+        slot0 = NM-4E
+        e0/0 = HUB6 3
+        x = 207.038671968
+        y = -139.39696962
+        z = 1.0
+    [[ROUTER R11]]
+        model = 3640
+        console = 2025
+        aux = 2525
+        slot0 = NM-4E
+        e0/0 = HUB6 4
+        e0/1 = Internet e0/1
+        x = 406.79603128
+        y = -5.08831175457
+        z = 1.0
+    [[ROUTER R9]]
+        model = 3640
+        console = 2023
+        aux = 2523
+        slot0 = NM-4E
+        e0/0 = HUB5 3
+        e0/1 = HUB6 1
+        e0/2 = R13 e0/1
+        x = 102.764501988
+        y = 2.04163056034
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    m11 = 0.5
+    m22 = 0.5
+    [[Cloud DNS_root]]
+        symbol = Host
+        x = -213.519335984
+        y = 270.313275223
+        z = 1.0
+        connections = HUB7:4:nio_gen_eth:lo
+    [[Cloud Host_A]]
+        symbol = Host
+        x = -268.673664916
+        y = -400.023953342
+        z = 1.0
+        connections = HUB3:3:nio_gen_eth:lo
+    [[Cloud Host_C]]
+        symbol = Host
+        x = -213.519335984
+        y = 164.247258045
+        z = 1.0
+        connections = HUB7:5:nio_gen_eth:lo
+    [[Cloud Host_B]]
+        symbol = Host
+        x = -117.352813742
+        y = -165.264501988
+        z = 1.0
+        connections = HUB5:4:nio_gen_eth:lo
+    [[Cloud FTP_server]]
+        symbol = Host
+        x = -87.813708499
+        y = 405.186291501
+        z = 1.0
+        connections = HUB8:3:nio_gen_eth:lo
+    [[Cloud TelServer]]
+        symbol = Host
+        x = 24.0685424949
+        y = -115.767027305
+        hx = 18.4765625
+        hy = -26.4142135624
+        z = 1.0
+        connections = HUB5:5:nio_gen_eth:lo HUB6:2:nio_gen_eth:wlan0
+    [[Cloud WebServer]]
+        symbol = Host
+        x = 431.362048458
+        y = -359.011760033
+        z = 1.0
+        connections = SW4:2:nio_gen_eth:lo
+    [[Cloud DNS_2]]
+        symbol = Host
+        x = 207.916305603
+        y = 69.4949493661
+        z = 1.0
+        connections = HUB6:5:nio_gen_eth:lo
+    [[Cloud DNS_1]]
+        symbol = Host
+        x = -564.244299452
+        y = -450.935641587
+        z = 1.0
+        connections = R2:e0/1:nio_gen_eth:lo
