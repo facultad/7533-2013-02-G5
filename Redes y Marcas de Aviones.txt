@@ -1,0 +1,21 @@
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Nro Red|  Marca Avion      |Abreviatura|
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   1   | Airbus            |     A     |
+|   2   | Boeing            |     B     |
+|   3   | Concorde          |     C     |
+|   4   | Douglas           |     D     |
+|   5   | Embraer           |     E     |
+|   6   | Fokker            |     F     |
+|   7   | Goshawk (Douglas) |     G     |
+|   8   | De Havilland      |     H     |
+|   9   | Jumbo (Boeing)    |     J     |
+|  10   | Lockheed          |     L     |
+|  11   | Mikoyan           |     M     |
+|  12   | Osprey (Boeing)   |     O     |
+|  13   | Panavia           |     P     |
+|  14   | Saab              |     S     |
+|  15   | Tupolev           |     T     |
+|  16   | Vector (Embraer)  |     V     |
+|  17   | Xingu (Embraer)   |     X     |
+|  18   | Yakovlev          |     Y     |
