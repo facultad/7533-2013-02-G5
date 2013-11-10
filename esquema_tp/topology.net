@@ -1,10 +1,11 @@
 autostart = False
-version = 0.8.5
+version = 0.8.6
 [127.0.0.1:7202]
     workingdir = /opt/GNS3/tmp
     udp = 10200
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
         sparsemem = True
         ghostios = True
         chassis = 3640
@@ -40,20 +41,21 @@ version = 0.8.5
     workingdir = /opt/GNS3/tmp
     udp = 10000
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
         sparsemem = True
         ghostios = True
         chassis = 3640
     [[ETHSW b4]]
         1 = access 1 b5 2
-        x = 456.646319706
-        y = -400.666088965
+        x = 256.646319706
+        y = -442.666088965
         z = 1.0
     [[ETHSW b5]]
         1 = access 1 HUB4 4
         2 = access 1 b4 1
-        x = 250.171139599
-        y = -406.322943215
+        x = 380.171139599
+        y = -312.322943215
         z = 1.0
     [[ETHSW b1]]
         1 = access 1 HUB1 3
@@ -187,14 +189,16 @@ version = 0.8.5
         aux = 2510
         slot0 = NM-4E
         e0/0 = HUB5 2
-        x = -496.862048458
-        y = 108.107647738
+        e0/1 = R9 e0/2
+        x = -492.862048458
+        y = 98.107647738
         z = 1.0
 [127.0.0.1:7201]
     workingdir = /opt/GNS3/tmp
     udp = 10100
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        idlepc = 0x60593c70
         sparsemem = True
         ghostios = True
         chassis = 3640
@@ -202,15 +206,15 @@ version = 0.8.5
         1 = access 1 R14 e0/1
         2 = access 1 R15 e0/1
         3 = access 1 R16 e0/0
-        x = -301.372149726
-        y = 521.401153702
+        x = -280.058441227
+        y = 394.54833996
         z = 1.0
     [[ETHSW HUB7]]
         1 = access 1 R13 e0/1
         2 = access 1 R14 e0/0
         3 = access 1 R15 e0/0
-        x = -581.386435076
-        y = 351.695526217
+        x = -607.386435076
+        y = 263.695526217
         z = 1.0
     [[ETHSW HUB6]]
         1 = access 1 R9 e0/1
@@ -226,8 +230,8 @@ version = 0.8.5
         slot0 = NM-4E
         e0/0 = HUB8 3
         e0/1 = R12 e0/0
-        x = 37.7106781187
-        y = 379.636651714
+        x = 3.71067811867
+        y = 315.636651714
         z = 1.0
     [[ROUTER R14]]
         model = 3640
@@ -236,8 +240,8 @@ version = 0.8.5
         slot0 = NM-4E
         e0/0 = HUB7 2
         e0/1 = HUB8 1
-        x = -573.229580827
-        y = 464.489465456
+        x = -549.229580827
+        y = 385.23463146
         z = 1.0
     [[ROUTER R15]]
         model = 3640
@@ -246,8 +250,8 @@ version = 0.8.5
         slot0 = NM-4E
         e0/0 = HUB7 3
         e0/1 = HUB8 2
-        x = -332.813275223
-        y = 342.867099092
+        x = -362.813275223
+        y = 274.867099092
         z = 1.0
     [[ROUTER R12]]
         model = 3640
@@ -295,28 +299,96 @@ version = 0.8.5
         slot0 = NM-4E
         e0/0 = HUB5 3
         e0/1 = HUB6 1
-        x = -276.244732728
-        y = 116.592929113
+        e0/2 = R8 e0/1
+        x = -270.244732728
+        y = 96.592929113
         z = 1.0
 [GNS3-DATA]
     configs = configs
-    m11 = 0.353553390593
-    m22 = 0.353553390593
+    m11 = 0.707106781186
+    m22 = 0.707106781186
+    [[NOTE 1]]
+        text = "A5"
+        x = 308.298556598
+        y = -182.607647738
+        color = "#00007f"
+    [[NOTE 2]]
+        text = "A1(WebServer)"
+        x = 387.494516091
+        y = -427.467604156
+        color = "#00007f"
+    [[NOTE 3]]
+        text = "A4(VRRP)"
+        x = 7.07106781187
+        y = -319.786363289
+        color = "#00007f"
+    [[NOTE 4]]
+        text = "A3"
+        x = 32.5269119346
+        y = -237.761976671
+        color = "#00007f"
+    [[NOTE 5]]
+        text = "A2"
+        x = 35.3553390594
+        y = -410.095021154
+        color = "#00007f"
+    [[NOTE 6]]
+        text = "A 192.168.53.0"
+        x = 366.281312655
+        y = -381.810749906
+        color = "#aa0000"
+    [[NOTE 7]]
+        text = "Costo OSPF"
+        x = 782.060099993
+        y = -333.526478659
+        color = "#005500"
+    [[NOTE 8]]
+        text = "Letra-IP Host"
+        x = 782.060099993
+        y = -356.153895657
+        color = "#00007f"
+    [[NOTE 9]]
+        text = "Letra-IP de Red/Mascara"
+        x = 782.060099993
+        y = -381.60973978
+        color = "#aa0000"
+    [[NOTE 10]]
+        text = "Sede Junin de los Andes"
+        x = 154.0
+        y = -94.5000000001
+        font = "Ubuntu,16,-1,5,75,0,0,0,0,0"
+        color = "#3c3c3c"
+    [[NOTE 11]]
+        text = "Sede Chos Malal"
+        x = 412.0
+        y = -472.5
+        font = "Ubuntu,16,-1,5,75,0,0,0,0,0"
+        color = "#3c3c3c"
+    [[NOTE 12]]
+        text = "Sede Alumine"
+        x = 190.0
+        y = 209.5
+        font = "Ubuntu,16,-1,5,75,0,0,0,0,0"
+        color = "#3c3c3c"
     [[SHAPE 1]]
-        type = rectangle
-        x = -803.273303428
-        y = 217.788888605
-        width = 1298.24805026
-        height = 364.867099092
-    [[SHAPE 2]]
         type = rectangle
         x = -704.278354062
         y = -104.651803616
-        width = 1055.00331753
+        width = 1112.27835406
         height = 288.499566724
-    [[SHAPE 3]]
+        fill_color = "#aaff7f"
+    [[SHAPE 2]]
         type = rectangle
-        x = -919.238815543
+        x = -920.653029105
         y = -480.832611207
         width = 1510.38008461
         height = 356.381817718
+        fill_color = "#aaffff"
+    [[SHAPE 3]]
+        type = rectangle
+        x = -803.273303428
+        y = 202.0
+        width = 1298.24805026
+        height = 284.489465457
+        fill_color = "#ffff7f"
+        z = -1.0
