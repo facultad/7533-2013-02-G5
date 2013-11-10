@@ -4,7 +4,7 @@
 | 1 | Airbus            |  A  | 254 | 254 | 192.168.53.0  | /24 | WebServer     |
 | 2 | Boeing            |  B  | 234 | 254 | 10.11.22.0    | /24 | FTPServer     |
 | 3 | Concorde          |  C  | 160 | 254 | 10.11.23.0    | /24 | Host A        |
-| 4 | Douglas           |  D  | 136 | 254 | 10.134.1.0    | /24 | TelServ-Host B|
+| 4 | Douglas           |  D  | 137 | 254 | 10.134.1.0    | /24 | TelServ-Host B|
 | 5 | Embraer           |  E  |  73 | 126 | 10.134.5.128  | /25 | TelServ-DNS 2 |
 | 6 | Fokker            |  F  |  53 |  62 | 10.9.12.192   | /26 | DNS root-HostC|
 | 7 | Goshawk (Douglas) |  G  |  27 |  30 | 10.134.13.64  | /27 | DNS 1         |
