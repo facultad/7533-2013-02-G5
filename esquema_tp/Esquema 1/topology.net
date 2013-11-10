@@ -1,10 +1,10 @@
 autostart = False
 version = 0.8.6
 [127.0.0.1:7202]
-    workingdir = /opt/GNS3/tmp
+    workingdir = /tmp
     udp = 10200
     [[3640]]
-        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         idlepc = 0x60593c70
         sparsemem = True
         ghostios = True
@@ -38,10 +38,10 @@ version = 0.8.6
         hx = 60.8377502485
         hy = -27.8284271247
 [127.0.0.1:7200]
-    workingdir = /opt/GNS3/tmp
+    workingdir = /tmp
     udp = 10000
     [[3640]]
-        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         idlepc = 0x60593c70
         sparsemem = True
         ghostios = True
@@ -194,10 +194,10 @@ version = 0.8.6
         y = 98.107647738
         z = 1.0
 [127.0.0.1:7201]
-    workingdir = /opt/GNS3/tmp
+    workingdir = /tmp
     udp = 10100
     [[3640]]
-        image = /home/ezequiel/GNS3/Images/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         idlepc = 0x60593c70
         sparsemem = True
         ghostios = True

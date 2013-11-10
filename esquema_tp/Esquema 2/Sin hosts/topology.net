@@ -1,10 +1,10 @@
 autostart = False
 version = 0.8.5
 [127.0.0.1:7202]
-    workingdir = /tmp/GNS3_pI2HAP/working
+    workingdir = /tmp
     udp = 10200
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         sparsemem = True
         ghostios = True
         chassis = 3640
@@ -37,10 +37,10 @@ version = 0.8.5
         hx = 60.8377502485
         hy = -27.8284271247
 [127.0.0.1:7200]
-    workingdir = /tmp/GNS3_pI2HAP/working
+    workingdir = /tmp
     udp = 10000
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         sparsemem = True
         ghostios = True
         chassis = 3640
@@ -191,10 +191,10 @@ version = 0.8.5
         y = 108.107647738
         z = 1.0
 [127.0.0.1:7201]
-    workingdir = /tmp/GNS3_pI2HAP/working
+    workingdir = /tmp
     udp = 10100
     [[3640]]
-        image = /home/marco/Descargas/archivos_dynamips/IOS/c3640-js-mz.124-10.bin
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
         sparsemem = True
         ghostios = True
         chassis = 3640
