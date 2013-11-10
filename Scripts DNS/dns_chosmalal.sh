@@ -83,46 +83,46 @@ zone \"53.168.192.in-addr.arpa\" IN {
 
 
 declare -a RESOLUCIONES=(
-"airbus	IN	A	10.134.13.64 ; Red A  /27 " \
-"R2.airbus	IN	A	10.134.13.65;" \
+"goshawk	IN	A	10.134.13.64 ; Red A  /27 " \
+"R2.goshawk	IN	A	10.134.13.65;" \
 \
-"boeing	IN	A	10.1.23.0 ; Red B /24 "  \
-"R1.boeing	IN	A	10.1.23.2;" \
-"R2.boeing	IN	A	10.1.23.3;" \
-"R3.boeing	IN	A	10.1.23.4;" \
-"R4.boeing	IN	A	10.1.23.5;" \
-"R5.boeing	IN	A	10.1.23.6;" \
-"a.boeing	IN	A	10.1.23.1;Ubicado en la red B, con masc /24" \
+"concorde	IN	A	10.11.23.0 ; Red B /24 "  \
+"R1.concorde	IN	A	10.11.23.2;" \
+"R2.concorde	IN	A	10.11.23.3;" \
+"R3.concorde	IN	A	10.11.23.4;" \
+"R4.concorde	IN	A	10.11.23.5;" \
+"R5.concorde	IN	A	10.11.23.6;" \
+"a.concorde	IN	A	10.11.23.1;Ubicado en la red C, con masc /24" \
 \
-"concorde		IN	A	192.168.53.0 ;   Red C  /24" \
-"R4.curel	IN	A	192.168.53.2;" \
-"R5.curel	IN	A	192.168.53.3;" \
-"R6.curel	IN	A	192.168.53.4;" \
-"www.concorde	IN	A	192.168.53.1; Ubicado en la red C" \
+"airbus		IN	A	192.168.53.0 ;   Red C  /24" \
+"R4.airbus	IN	A	192.168.53.2;" \
+"R5.airbus	IN	A	192.168.53.3;" \
+"R6.airbus	IN	A	192.168.53.4;" \
+"www.airbus	IN	A	192.168.53.1; Ubicado en la red A" \
 )
 
 
 declare -a RESOLUCIONES_INV_10_134_13_64_65=(
-"64	IN	PTR	airbus.${DOMINIO_DNS} ; Red A  /27 " \
-"65	IN	PTR	R2.airbus.${DOMINIO_DNS};" \
+"64	IN	PTR	goshawk.${DOMINIO_DNS} ; Red A  /27 " \
+"65	IN	PTR	R2.goshawk.${DOMINIO_DNS};" \
 )
 
 declare -a RESOLUCIONES_INV_10_11_23=(
-"0	IN	PTR	boeing.${DOMINIO_DNS} ; Red B  /24 " \
-"2	IN	PTR	R1.boeing.${DOMINIO_DNS};" \
-"3	IN	PTR	R2.boeing.${DOMINIO_DNS};" \
-"4	IN	PTR	R3.boeing.${DOMINIO_DNS};" \
-"5	IN	PTR	R4.boeing.${DOMINIO_DNS};" \
-"6	IN	PTR	R5.boeing.${DOMINIO_DNS};" \
-"1	IN	PTR	a.boeing.${DOMINIO_DNS}; Ubicado en la red B, con masc /24" \
+"0	IN	PTR	concorde.${DOMINIO_DNS} ; Red B  /24 " \
+"2	IN	PTR	R1.concorde.${DOMINIO_DNS};" \
+"3	IN	PTR	R2.concorde.${DOMINIO_DNS};" \
+"4	IN	PTR	R3.concorde.${DOMINIO_DNS};" \
+"5	IN	PTR	R4.concorde.${DOMINIO_DNS};" \
+"6	IN	PTR	R5.concorde.${DOMINIO_DNS};" \
+"1	IN	PTR	a.concorde.${DOMINIO_DNS}; Ubicado en la red C, con masc /24" \
 )
 
 declare -a RESOLUCIONES_INV_192_168_53=(
-"1	IN	PTR	www.concorde.${DOMINIO_DNS} ;  Ubicado en la red C " \
-"0	IN	PTR	concorde.${DOMINIO_DNS};	Red C  /24 "  \
-"2	IN	PTR	R4.concorde.${DOMINIO_DNS};" \
-"3	IN	PTR	R5.concorde.${DOMINIO_DNS};" \
-"4	IN	PTR	R6.concorde.${DOMINIO_DNS};" \
+"1	IN	PTR	www.airbus.${DOMINIO_DNS} ;  Ubicado en la red A " \
+"0	IN	PTR	airbus.${DOMINIO_DNS};	Red C  /24 "  \
+"2	IN	PTR	R4.airbus.${DOMINIO_DNS};" \
+"3	IN	PTR	R5.airbus.${DOMINIO_DNS};" \
+"4	IN	PTR	R6.airbus.${DOMINIO_DNS};" \
 )
 
 
