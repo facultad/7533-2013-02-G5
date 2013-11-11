@@ -186,10 +186,10 @@ declare -a RESOLUCIONES_ALUMINE=(
 "R14.concorde	IN	A	10.134.13.49;" \
 \
 "boeing	IN	A	10.11.22.0 ; Red B /24 "  \
-"R14.boeing	IN	A	10.1.22.1;" \
-"R15.boeing	IN	A	10.1.22.2;" \
-"R16.boeing	IN	A	10.1.22.3;" \
-"ftp.boeing	IN	A	10.1.22.4;Ubicado en la red B, con masc /24 " \
+"R14.boeing	IN	A	10.1.22.2;" \
+"R15.boeing	IN	A	10.1.22.3;" \
+"R16.boeing	IN	A	10.1.22.4;" \
+"ftp.boeing	IN	A	10.1.22.1;Ubicado en la red B, con masc /24 " \
 \
 "lockheed	IN	A	10.134.13.160 ; Red L /27 "  \
 "R12.lockheed	IN	A	10.34.13.161;" \
@@ -211,19 +211,21 @@ declare -a RESOLUCIONES_JUNIN=(
 "R7.osprey	IN	A	10.134.13.46;" \
 \
 "douglas	IN	A	10.134.1.0 ; Red D /24 "  \
-"telnet.douglas	IN	A	10.134.1.3;" \
+"telnet.douglas	IN	A	10.134.1.5;" \
 "R7.douglas	IN	A	10.134.1.1;" \
-"b.douglas	IN	A	10.134.1.2;Ubicado en la red D, con masc /24 " \
+"R8.douglas	IN	A	10.134.1.2;" \
+"R9.douglas	IN	A	10.134.1.3;" \
+"b.douglas	IN	A	10.134.1.4;Ubicado en la red D, con masc /24 " \
 \
 "havilland	IN	A	10.134.13.96 ; Red H /27 "  \
 "R10.havilland	IN	A	10.134.13.97;" \
 \
 "embraer	IN	A	10.134.5.128 ; Red E /25 "  \
-"telnet.embraer	IN	A	10.134.5.132;" \
-"R9.embraer	IN	A	10.134.5.129;" \
+"telnet.embraer	IN	A	10.134.5.133;" \
+"R9.embraer	IN	A	10.134.5.130;" \
 "R10.embraer	IN	A	10.134.5.130;" \
-"R11.embraer	IN	A	10.134.5.131;" \
-"ns2.embraer	IN	A	10.134.5.133;" \
+"R11.embraer	IN	A	10.134.5.132;" \
+"ns2.embraer	IN	A	10.134.5.129;" \
 \
 "tupolev	IN	A	10.134.13.36 ; Red T privada /30 "  \
 "R6.tupolev	IN	A	10.134.13.37;" \
@@ -237,14 +239,14 @@ declare -a RESOLUCIONES_JUNIN=(
 "R11.xingu	IN	A	10.134.13.29;" \
 "R12.xingu	IN	A	10.134.13.30;" \
 \
-"R6.saab	IN	A	137.43.1.1;" \
-"INTERNET.saab	IN	A	137.43.1.2;" \
+"R6.saab	IN	A	137.43.1.2;" \
+"INTERNET.saab	IN	A	137.43.1.1;" \
 \
-"R11.saab2	IN	A	137.43.1.5;" \
-"INTERNET.saab2	IN	A	137.43.1.6;" \
+"R11.saab2	IN	A	137.43.1.6;" \
+"INTERNET.saab2	IN	A	137.43.1.5;" \
 \
-"R12.saab3	IN	A	137.43.1.9;" \
-"INTERNET.saab3	IN	A	137.43.1.10;" \
+"R12.saab3	IN	A	137.43.1.10;" \
+"INTERNET.saab3	IN	A	137.43.1.9;" \
 \
 "R1R7.yakovlev	IN	A	172.13.1.193;" \
 "R1R13.yakovlev	IN	A	172.13.1.197;" \
@@ -274,10 +276,10 @@ declare -a RESOLUCIONES_INV_10_134_13_48_49=(
 
 declare -a RESOLUCIONES_INV_10_11_22=(
 "0	IN	PTR	boeing.alumine.${DOMINIO_DNS}; 	Red B  /24 " \
-"1	IN	PTR	R14.boeing.alumine.${DOMINIO_DNS}; " \
-"2	IN	PTR	R15.boeing.alumine.${DOMINIO_DNS}; " \
-"3	IN	PTR	R16.boeing.alumine.${DOMINIO_DNS}; " \
-"4	IN	PTR	ftp.boeing.alumine.${DOMINIO_DNS}; " \
+"2	IN	PTR	R14.boeing.alumine.${DOMINIO_DNS}; " \
+"3	IN	PTR	R15.boeing.alumine.${DOMINIO_DNS}; " \
+"4	IN	PTR	R16.boeing.alumine.${DOMINIO_DNS}; " \
+"1	IN	PTR	ftp.boeing.alumine.${DOMINIO_DNS}; " \
 )
 
 declare -a RESOLUCIONES_INV_10_134_13_160_162=(
@@ -307,9 +309,11 @@ declare -a RESOLUCIONES_INV_10_134_13_44_46=(
 
 declare -a RESOLUCIONES_INV_10_134_1=(
 "0	IN	PTR	douglas.junin.${DOMINIO_DNS}; 	Red D  /24 " \
-"3	IN	PTR	telnet.douglas.junin.${DOMINIO_DNS}; " \
+"5	IN	PTR	telnet.douglas.junin.${DOMINIO_DNS}; " \
 "1	IN	PTR	R7.douglas.junin.${DOMINIO_DNS}; " \
-"2	IN	PTR	b.douglas.junin.${DOMINIO_DNS}; Ubicado en la red D, con masc /24 " \
+"2	IN	PTR	R8.douglas.junin.${DOMINIO_DNS}; " \
+"3	IN	PTR	R9.douglas.junin.${DOMINIO_DNS}; " \
+"4	IN	PTR	b.douglas.junin.${DOMINIO_DNS}; Ubicado en la red D, con masc /24 " \
 )
 
 declare -a RESOLUCIONES_INV_10_134_13_96_97=(
@@ -319,11 +323,11 @@ declare -a RESOLUCIONES_INV_10_134_13_96_97=(
 
 declare -a RESOLUCIONES_INV_10_134_5_128_133=(
 "128	IN	PTR	embraer.junin.${DOMINIO_DNS}; 	Red E  /25 " \
-"132	IN	PTR	telnet.embraer.junin.${DOMINIO_DNS}; " \
-"129	IN	PTR	R9.embraer.junin.${DOMINIO_DNS}; " \
+"133	IN	PTR	telnet.embraer.junin.${DOMINIO_DNS}; " \
+"130	IN	PTR	R9.embraer.junin.${DOMINIO_DNS}; " \
 "130	IN	PTR	R10.embraer.junin.${DOMINIO_DNS}; " \
-"131	IN	PTR	R11.embraer.junin.${DOMINIO_DNS}; " \
-"133	IN	PTR	ns2.embraer.junin.${DOMINIO_DNS}; " \
+"132	IN	PTR	R11.embraer.junin.${DOMINIO_DNS}; " \
+"129	IN	PTR	ns2.embraer.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a RESOLUCIONES_INV_10_134_13_36_38=(
@@ -354,14 +358,14 @@ declare -a RESOLUCIONES_INV_172_13_1=(
 )
 
 declare -a RESOLUCIONES_INV_137_43=( 
-"1.1	IN	PTR	R6.saab.junin.${DOMINIO_DNS};" \
-"2.1	IN	PTR	INTERNET.saab.junin.${DOMINIO_DNS};" \
+"2.1	IN	PTR	R6.saab.junin.${DOMINIO_DNS};" \
+"1.1	IN	PTR	INTERNET.saab.junin.${DOMINIO_DNS};" \
 \
-"5.1	IN	PTR	R11.saab2.junin.${DOMINIO_DNS};" \
-"6.1	IN	PTR	INTERNET.saab2.junin.${DOMINIO_DNS};" \
+"6.1	IN	PTR	R11.saab2.junin.${DOMINIO_DNS};" \
+"5.1	IN	PTR	INTERNET.saab2.junin.${DOMINIO_DNS};" \
 \
-"9.1	IN	PTR	R12.saab3.junin.${DOMINIO_DNS};" \
-"10.1	IN	PTR	INTERNET.saab3.junin.${DOMINIO_DNS};" \
+"10.1	IN	PTR	R12.saab3.junin.${DOMINIO_DNS};" \
+"9.1	IN	PTR	INTERNET.saab3.junin.${DOMINIO_DNS};" \
 )
 
 
