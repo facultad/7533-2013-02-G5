@@ -11,9 +11,9 @@ DOMINIO_DNS_ROOT="${_DOMINIO_DNS_ROOT:-neuquen.dc.fi.uba.ar}"
 DOMINIO_DNS="chosmalal.${DOMINIO_DNS_ROOT}"
 ARCH_CONFIGURACION="db.local"
 ARCH_DNS_ROOT="db.root.dns"
-ARCH_CONF_INVERSO_10_134_13_64_65="db.local.10_134_13_64_65"
-ARCH_CONF_INVERSO_10_11_23="db.local.10_11_23"
-ARCH_CONF_INVERSO_192_168_53="db.local.192_168_53"
+ARCH_CONF_INVERSO_10_134_13_64_65="db.local.10.134.13.64-65" #G
+ARCH_CONF_INVERSO_10_11_23="db.local.10.11.23" #C
+ARCH_CONF_INVERSO_192_168_53="db.local.192.168.53" #A
 
 IP_DNS_ROOT="${_IP_DNS_ROOT:-10.9.12.197}"
 
@@ -92,12 +92,14 @@ declare -a RESOLUCIONES=(
 "R3.concorde	IN	A	10.11.23.4;" \
 "R4.concorde	IN	A	10.11.23.5;" \
 "R5.concorde	IN	A	10.11.23.6;" \
+"masterVRRP.concorde	IN	A	10.11.23.7;" \
 "a.concorde	IN	A	10.11.23.1;Ubicado en la red C, con masc /24" \
 \
 "airbus		IN	A	192.168.53.0 ;   Red C  /24" \
 "R4.airbus	IN	A	192.168.53.2;" \
 "R5.airbus	IN	A	192.168.53.3;" \
 "R6.airbus	IN	A	192.168.53.4;" \
+"masterVRRP.concorde	IN	A	192.168.53.5;" \
 "www.airbus	IN	A	192.168.53.1; Ubicado en la red A" \
 )
 
@@ -114,6 +116,7 @@ declare -a RESOLUCIONES_INV_10_11_23=(
 "4	IN	PTR	R3.concorde.${DOMINIO_DNS};" \
 "5	IN	PTR	R4.concorde.${DOMINIO_DNS};" \
 "6	IN	PTR	R5.concorde.${DOMINIO_DNS};" \
+"7	IN	PTR	masterVRRP.concorde.${DOMINIO_DNS};" \
 "1	IN	PTR	a.concorde.${DOMINIO_DNS}; Ubicado en la red C, con masc /24" \
 )
 
@@ -123,6 +126,7 @@ declare -a RESOLUCIONES_INV_192_168_53=(
 "2	IN	PTR	R4.airbus.${DOMINIO_DNS};" \
 "3	IN	PTR	R5.airbus.${DOMINIO_DNS};" \
 "4	IN	PTR	R6.airbus.${DOMINIO_DNS};" \
+"5	IN	PTR	masterVRRP.airbus.${DOMINIO_DNS};" \
 )
 
 
