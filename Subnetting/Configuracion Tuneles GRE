@@ -1,7 +1,7 @@
 Los pasos para configurar un tunel GRE son:
 1. Agregar en la tabla de ruteo estática la red del router destino del tunel GRE.
 2. Crear el tunel.
-3. Agregar en la tabla de ruteo estática el las redes que conecta el tunel GRE.
+3. Agregar en la tabla de ruteo estática las redes que conecta el tunel GRE.
 
 Configuración para la red Tupolev (10.134.13.36/30)
 ===================================================
@@ -59,3 +59,30 @@ R12(config)#ip route 192.168.53.0 255.255.255.0 tunnel 10 10.134.13.33
 R12(config)#end
 R12#wr
 
+Configuración para la red Xingu (10.134.13.28/30)
+===================================================
+En R11
+R11#configure terminal
+R11(config)#ip route 137.43.1.8 255.255.255.252 137.43.1.5
+R11(config)#interface Tunnel20
+R11(config-if)#ip address 10.134.13.29 255.255.255.252
+R11(config-if)#tunnel source 137.43.1.6
+R11(config-if)#tunnel destination 137.43.1.10
+R11(config-if)#end
+R11#configure terminal
+R11(config)#ip route 10.134.13.160 255.255.255.224 tunnel 20 10.134.13.30
+R11(config)#end
+R11#wr
+
+En R12
+R12#configure terminal
+R12(config)#ip route 137.43.1.4 255.255.255.252 137.43.1.9
+R12(config)#interface Tunnel20
+R12(config-if)#ip address 10.134.13.30 255.255.255.252
+R12(config-if)#tunnel source 137.43.1.10
+R12(config-if)#tunnel destination 137.43.1.6
+R12(config-if)#end
+R12#configure terminal
+R12(config)#ip route 10.134.5.128 255.255.255.128 tunnel 20 10.134.13.29
+R12(config)#end
+R12#wr
