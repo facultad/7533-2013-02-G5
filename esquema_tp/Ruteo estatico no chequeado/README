@@ -1,0 +1,7 @@
+Todas las confs de los routers que no tienen ospf, con el ruteo para las redes que tienen host A,B,C o servers. Para las redes que solo tienen hosts (que no son ni el A,B,C) no rutee porque me parecia innecesario. De ultima lo agregare.
+
+Esto esta chequeado una parte minima, es probable que por el sueño haya pifiado en algo (anda a encontrarlo), mañana termino de probar y ver si arranca o no. En cuanto este seguro (al menos relativamente) de su funcionamiento lo paso a la topologia posta.
+
+Solo aparecen las configs de los routers que tenian ruteo estatico.
+
+Despues me faltaria saber si para los hosts y server vamos a usar un default gw o tmb setearles una tabla de ruteo (por lo que pispee me pa que les setean un def gw nomas)
