@@ -162,7 +162,7 @@ declare -a RESOLUCIONES_INV_172_13=(
 "3	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
 )
 
-declare -a RESOLUCIONES_INV_139_67=(
+declare -a RESOLUCIONES_INV_137_43=(
 "2	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
 )
 
