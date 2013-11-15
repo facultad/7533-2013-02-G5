@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 ## Configuración de Servidor DNS para la Zona Chos Malal
 
 ## Definición de constantes
@@ -18,6 +20,7 @@ ARCH_CONF_INVERSO_192_168_53="db.local.192.168.53" #A
 IP_DNS_ROOT="${_IP_DNS_ROOT:-10.9.12.197}"
 
 IP_DNS="${_IP_DNS_1:-127.0.0.1}"
+
 
 
 declare -a RESOLUCIONES_DNS_ROOT=(
@@ -92,8 +95,8 @@ declare -a RESOLUCIONES=(
 "R3.concorde	IN	A	10.11.23.3;" \
 "R4.concorde	IN	A	10.11.23.4;" \
 "R5.concorde	IN	A	10.11.23.5;" \
-"masterVRRP.concorde	IN	A	10.11.23.7;" \
-"a.concorde	IN	A	10.11.23.6;Ubicado en la red C, con masc /24" \
+"masterVRRP.concorde	IN	A	10.11.23.6;" \
+"a.concorde	IN	A	10.11.23.7;Ubicado en la red C, con masc /24" \
 \
 "airbus		IN	A	192.168.53.0 ;   Red A  /24" \
 "R4.airbus	IN	A	192.168.53.2;" \
@@ -116,8 +119,8 @@ declare -a RESOLUCIONES_INV_10_11_23=(
 "3	IN	PTR	R3.concorde.${DOMINIO_DNS};" \
 "4	IN	PTR	R4.concorde.${DOMINIO_DNS};" \
 "5	IN	PTR	R5.concorde.${DOMINIO_DNS};" \
-"7	IN	PTR	masterVRRP.concorde.${DOMINIO_DNS};" \
-"6	IN	PTR	a.concorde.${DOMINIO_DNS}; Ubicado en la red C, con masc /24" \
+"6	IN	PTR	masterVRRP.concorde.${DOMINIO_DNS};" \
+"7	IN	PTR	a.concorde.${DOMINIO_DNS}; Ubicado en la red C, con masc /24" \
 )
 
 declare -a RESOLUCIONES_INV_192_168_53=(
@@ -134,8 +137,7 @@ declare -a RESOLUCIONES_INV_192_168_53=(
 
 ## Funciones auxiliares
 
-function finalizar_y_salir 
-{
+function finalizar_y_salir {
 	if [ "$1" = "0" ];then 
 		echo "Configuracion Exitosa."
 	else
@@ -145,9 +147,7 @@ function finalizar_y_salir
 	exit $1
 }
 
-
-function comprobar_usuario_root 
-{
+function comprobar_usuario_root {
 	if [ "$USER" != "root" ]; then
 		echo "Debe iniciar la ejecucion como usuario root"
 		finalizar_y_salir "5" "No es usuario Root"
@@ -157,8 +157,7 @@ function comprobar_usuario_root
 }
 
 
-function comprobar_archivos_respaldados 
-{
+function comprobar_archivos_respaldados {
 	if [ "${ARCHIVOS_RESPALDADOS:-FALSE}" = "TRUE" ]; then 
 		echo "Msj: Existen archivos de respaldo."
 	else
@@ -167,8 +166,7 @@ function comprobar_archivos_respaldados
 	return 0
 }
 
-function comprobar_bind_instalado 
-{
+function comprobar_bind_instalado {
 	declare local msj_retorno
 
 	if [ -d "/etc/bind" ]; then
@@ -180,18 +178,16 @@ function comprobar_bind_instalado
 	return 0
 }
 
-function comprobaciones
-{
+function comprobaciones {
 	comprobar_usuario_root
 
-	comprobar_archivos_respaldados
+	#comprobar_archivos_respaldados
 
 	comprobar_bind_instalado
 	configurar_ip_local
 }
 
-function configurar_ip_local 
-{	
+function configurar_ip_local {	
 	echo "Configurando Ip Local..."
 	echo "(Falta hacer... si es necesario)"
 	
@@ -199,8 +195,7 @@ function configurar_ip_local
 }
 
 
-function cargar_named_conf 
-{	
+function cargar_named_conf {	
 	reemplazar_en_archivo "${DIR_BIND}/named.conf" "include" "//include"
 	
 	echo "include \"${DIR_BIND}/named.conf.local\";" >> "${DIR_BIND}/named.conf";
@@ -210,8 +205,7 @@ function cargar_named_conf
 	return 0
 }
 
-function reemplazar_en_archivo 
-{	
+function reemplazar_en_archivo {	
 	if [ $# -eq 3 ]; then
 
 		declare local arch_aux="auxiliar.tmp"
@@ -226,8 +220,7 @@ function reemplazar_en_archivo
 		return 0
 }
 
-function cargar_named_conf_local 
-{	
+function cargar_named_conf_local {	
 	echo -e "$OPCIONES_CONF" > "${DIR_BIND}/named.conf.local"
 	echo -e "$ZONAS" >> "${DIR_BIND}/named.conf.local"
 	chmod +r "${DIR_BIND}/named.conf.local"
@@ -236,8 +229,7 @@ function cargar_named_conf_local
 
 
 
-function cargar_dbs 
-{	
+function cargar_dbs {	
 	reemplazar_en_archivo "${DIR_BIND}/${ARCH_CONFIGURACION}" "localhost" "${DOMINIO_DNS}" 
 	reemplazar_en_archivo "${DIR_BIND}/${ARCH_CONFIGURACION}" "127.0.0.1" "${IP_DNS}" 
 	
@@ -286,8 +278,7 @@ function cargar_dbs
 }
 
 
-function iniciar_bind 
-{
+function iniciar_bind {
 	echo "Iniciando BIND..."
 	/etc/init.d/bind9 restart
 
@@ -298,8 +289,7 @@ function iniciar_bind
 	return 0
 }
 
-function informar_dns_corriendo 
-{	
+function informar_dns_corriendo {	
 	echo "
 ***********************************************************************************
 ***********************************************************************************
@@ -315,8 +305,7 @@ function informar_dns_corriendo
 	return 0
 }
 
-function cargar_confs
-{
+function cargar_confs {
 	cargar_named_conf
 	cargar_named_conf_local
 	cargar_dbs
@@ -339,3 +328,6 @@ iniciar_bind
 informar_dns_corriendo
 
 finalizar_y_salir "0"
+
+
+

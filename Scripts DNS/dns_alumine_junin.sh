@@ -183,7 +183,7 @@ declare -a RESOLUCIONES_ALUMINE=(
 "c.fokker	IN	A	10.9.12.197;Ubicado en la red F, con masc /26" \
 \
 "mikoyan	IN	A	10.134.13.48 ; Red M /28 "  \
-"R14.concorde	IN	A	10.134.13.49;" \
+"R14.mikoyan	IN	A	10.134.13.49;" \
 \
 "boeing	IN	A	10.11.22.0 ; Red B /24 "  \
 "R14.boeing	IN	A	10.1.22.2;" \
@@ -211,21 +211,22 @@ declare -a RESOLUCIONES_JUNIN=(
 "R7.osprey	IN	A	10.134.13.46;" \
 \
 "douglas	IN	A	10.134.1.0 ; Red D /24 "  \
-"telnet.douglas	IN	A	10.134.1.5;" \
+"telnet.douglas	IN	A	10.134.1.130;" \
 "R7.douglas	IN	A	10.134.1.1;" \
 "R8.douglas	IN	A	10.134.1.2;" \
 "R9.douglas	IN	A	10.134.1.3;" \
-"b.douglas	IN	A	10.134.1.4;Ubicado en la red D, con masc /24 " \
+"b.douglas	IN	A	10.134.1.5;Ubicado en la red D, con masc /24 " \
+"masterVRRP.douglas	IN	A	10.134.1.4;" \
 \
 "havilland	IN	A	10.134.13.96 ; Red H /27 "  \
 "R10.havilland	IN	A	10.134.13.97;" \
 \
 "embraer	IN	A	10.134.5.128 ; Red E /25 "  \
-"telnet.embraer	IN	A	10.134.5.133;" \
+"telnet.embraer	IN	A	10.134.5.129;" \
 "R9.embraer	IN	A	10.134.5.130;" \
-"R10.embraer	IN	A	10.134.5.130;" \
+"R10.embraer	IN	A	10.134.5.131;" \
 "R11.embraer	IN	A	10.134.5.132;" \
-"ns2.embraer	IN	A	10.134.5.129;" \
+"ns2.embraer	IN	A	10.134.5.133;" \
 \
 "tupolev	IN	A	10.134.13.36 ; Red T privada /30 "  \
 "R6.tupolev	IN	A	10.134.13.37;" \
@@ -309,11 +310,12 @@ declare -a RESOLUCIONES_INV_10_134_13_44_46=(
 
 declare -a RESOLUCIONES_INV_10_134_1=(
 "0	IN	PTR	douglas.junin.${DOMINIO_DNS}; 	Red D  /24 " \
-"5	IN	PTR	telnet.douglas.junin.${DOMINIO_DNS}; " \
+"130	IN	PTR	telnet.douglas.junin.${DOMINIO_DNS}; " \
 "1	IN	PTR	R7.douglas.junin.${DOMINIO_DNS}; " \
 "2	IN	PTR	R8.douglas.junin.${DOMINIO_DNS}; " \
 "3	IN	PTR	R9.douglas.junin.${DOMINIO_DNS}; " \
-"4	IN	PTR	b.douglas.junin.${DOMINIO_DNS}; Ubicado en la red D, con masc /24 " \
+"5	IN	PTR	b.douglas.junin.${DOMINIO_DNS}; Ubicado en la red D, con masc /24 " \
+"4	IN	PTR	masterVRRP.douglas.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a RESOLUCIONES_INV_10_134_13_96_97=(
@@ -323,11 +325,11 @@ declare -a RESOLUCIONES_INV_10_134_13_96_97=(
 
 declare -a RESOLUCIONES_INV_10_134_5_128_133=(
 "128	IN	PTR	embraer.junin.${DOMINIO_DNS}; 	Red E  /25 " \
-"133	IN	PTR	telnet.embraer.junin.${DOMINIO_DNS}; " \
+"129	IN	PTR	telnet.embraer.junin.${DOMINIO_DNS}; " \
 "130	IN	PTR	R9.embraer.junin.${DOMINIO_DNS}; " \
-"130	IN	PTR	R10.embraer.junin.${DOMINIO_DNS}; " \
+"131	IN	PTR	R10.embraer.junin.${DOMINIO_DNS}; " \
 "132	IN	PTR	R11.embraer.junin.${DOMINIO_DNS}; " \
-"129	IN	PTR	ns2.embraer.junin.${DOMINIO_DNS}; " \
+"132	IN	PTR	ns2.embraer.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a RESOLUCIONES_INV_10_134_13_36_38=(
@@ -423,7 +425,7 @@ function comprobaciones
 {
 	comprobar_usuario_root
 
-	comprobar_archivos_respaldados
+	#comprobar_archivos_respaldados
 
 	comprobar_bind_instalado
 	configurar_ip_local
@@ -666,3 +668,4 @@ iniciar_bind
 informar_dns_corriendo
 
 finalizar_y_salir "0"
+

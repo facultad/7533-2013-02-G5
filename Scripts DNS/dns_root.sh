@@ -221,7 +221,7 @@ function comprobaciones
 {
 	comprobar_usuario_root
 
-	comprobar_archivos_respaldados
+	#comprobar_archivos_respaldados
 
 	comprobar_bind_instalado
 	configurar_ip_local
