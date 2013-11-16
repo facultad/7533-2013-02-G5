@@ -1,0 +1,9 @@
+Para el servidor:
+	Ejecutar primero en sudo, el archivo ./servidor.sh. No abrir el GNS3 hasta no correr el script.
+	Abrir el GNS3 y usar.
+	Cada vez que se ejecuta el servidor.sh se limpian las interfaces, pero si se quisiese tirar las interfaces correr sudo pkill openvpn.
+
+Para cada cliente:
+	Ejecutar el archivo .sh correspondiente (dns1.sh, host_a.sh, etc) (en sudo).
+	Ejecutar el script configRuteoEstatico.sh (con sudo) para configurar los default gateways.
+	Be happy.
