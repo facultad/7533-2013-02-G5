@@ -1,81 +1,81 @@
-\documentclass[12pt,a4paper,spanish]{article} 
-
+\documentclass[12pt, a4paper, spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
 \usepackage{graphicx} %option specific for pdfLatex compilation
 \usepackage{makeidx}
 \usepackage{lscape}
-
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc} 
 \usepackage{indentfirst}
 
 \usepackage[margin=2cm]{geometry}
 \begin{document}
 \input{./title.tex}
+
 \newpage
 \tableofcontents
-\newpage
 
+\newpage
 \section{Subnetting}
 \subsection{Asignación de direcciones IP a las redes}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c c|}
 	\hline
 	Subred & Nombre 	& Hosts 	& Hosts máx. & Dirección 	& Máscara & \\
 	\hline
 	\hline
-	A & Airbus 	& 254 & 254 & 192.168.53.0 	& 255.255.255.0 & (/24) \\
+	A & Airbus 		& 254 & 254 	& 192.168.53.0 	& 255.255.255.0 & (/24) \\
 	\hline
-	B & Boeing 	& 234 & 254 & 10.11.22.0 	& 255.255.255.0 & (/24) \\
+	B & Boeing 		& 234 & 254 	& 10.11.22.0 	& 255.255.255.0 & (/24) \\
 	\hline
-	C & Concorde & 160 & 254 & 10.11.23.0 	& 255.255.255.0 & (/24) \\
+	C & Concorde 	& 160 & 254 	& 10.11.23.0 	& 255.255.255.0 & (/24) \\
 	\hline
-	D & Douglas 	& 137 & 254 & 10.134.1.0 	& 255.255.255.0 & (/24) \\
+	D & Douglas 		& 137 & 254 	& 10.134.1.0 	& 255.255.255.0 & (/24) \\
 	\hline
-	E & Embraer 	& 73 & 126 & 10.134.5.128 	& 255.255.255.128 & (/25) \\
+	E & Embraer 		& 73 & 126 	& 10.134.5.128 	& 255.255.255.128 & (/25) \\
 	\hline
-	F & Fokker 	& 53 & 62 & 10.9.12.192 		& 255.255.255.192 & (/26) \\
+	F & Fokker 		& 53 & 62 	& 10.9.12.192 	& 255.255.255.192 & (/26) \\
 	\hline
-	G & Goshawk 	& 27 & 30 & 10.134.13.64 	& 255.255.255.224 & (/27) \\
+	G & Goshawk 		& 27 & 30 	& 10.134.13.64 	& 255.255.255.224 & (/27) \\
 	\hline
-	H & De Havilland & 25 & 30 & 10.134.13.96 & 255.255.255.224 & (/27) \\
+	H & De Havilland & 25 & 30 	& 10.134.13.96 	& 255.255.255.224 & (/27) \\
 	\hline
-	J & Jumbo 	& 18 & 30 & 10.134.13.128 	& 255.255.255.224 & (/27) \\
+	J & Jumbo 		& 18 & 30 	& 10.134.13.128 	& 255.255.255.224 & (/27) \\
 	\hline
-	L & Lockheed & 18 & 30 & 10.134.13.160 	& 255.255.255.224 & (/27) \\
+	L & Lockheed 	& 18 & 30 	& 10.134.13.160 	& 255.255.255.224 & (/27) \\
 	\hline
-	M & Mikoyan 	& 7 & 14 & 10.134.13.48 	& 255.255.255.240 & (/28) \\
+	M & Mikoyan 		& 7 & 14 	& 10.134.13.48 	& 255.255.255.240 & (/28) \\
 	\hline
-	O & Osprey 	& 2 & 2 & 10.134.13.44 	& 255.255.255.252 & (/30) \\
+	O & Osprey 		& 2 & 2 		& 10.134.13.44 	& 255.255.255.252 & (/30) \\
 	\hline
-	P & Panavia 	& 2 & 2 & 10.134.13.40 	& 255.255.255.252 & (/30) \\
+	P & Panavia 		& 2 & 2 		& 10.134.13.40 	& 255.255.255.252 & (/30) \\
 	\hline
-	S & Saab 	& & 		& 137.43.1.0 	& 255.255.255.0 & (/24) \\
+	S & Saab 		& & 			& 137.43.1.0 	& 255.255.255.0 & (/24) \\
 	\hline
-	S1 & 		& 2 & 2 & 137.43.1.0 	& 255.255.255.252 & (/30) \\
+	S1 & 			& 2 & 2 		& 137.43.1.0 	& 255.255.255.252 & (/30) \\
 	\hline
-	S2 & 		& 2 & 2 & 137.43.1.4 	& 255.255.255.252 & (/30) \\
+	S2 & 			& 2 & 2 		& 137.43.1.4 	& 255.255.255.252 & (/30) \\
 	\hline
-	S3 & 		& 2 & 2 & 137.43.1.8 	& 255.255.255.252 & (/30) \\
+	S3 & 			& 2 & 2 		& 137.43.1.8 	& 255.255.255.252 & (/30) \\
 	\hline
-	T & Tupolev 	& 2 & 2 & 10.134.13.36 	& 255.255.255.252 & (/30) \\
+	T & Tupolev 		& 2 & 2 		& 10.134.13.36 	& 255.255.255.252 & (/30) \\
 	\hline
-	V & Vector 	& 2 & 2 & 10.134.13.32 	& 255.255.255.252 & (/30) \\
+	V & Vector 		& 2 & 2 		& 10.134.13.32 	& 255.255.255.252 & (/30) \\
 	\hline
-	X & Xingu 	& 2 & 2 & 10.134.13.28 	& 255.255.255.252 & (/30) \\
+	X & Xingu 		& 2 & 2 		& 10.134.13.28 	& 255.255.255.252 & (/30) \\
 	\hline
-	Y & Yakovlev & & 	& 172.13.1.192 	& 255.255.255.192 & (/26) \\
+	Y & Yakovlev 	& & 			& 172.13.1.192 	& 255.255.255.192 & (/26) \\
 	\hline
-	Y1 & 		& 2 & 2 & 172.13.1.192 	& 255.255.255.252 & (/30) \\
+	Y1 & 			& 2 & 2 		& 172.13.1.192 	& 255.255.255.252 & (/30) \\
 	\hline
-	Y2 & 		& 2 & 2 & 172.13.1.196 	& 255.255.255.252 & (/30) \\
+	Y2 & 			& 2 & 2 		& 172.13.1.196 	& 255.255.255.252 & (/30) \\
 	\hline
-	Y3 & 		& 2 & 2 & 172.13.1.200 	& 255.255.255.252 & (/30) \\
+	Y3 & 			& 2 & 2 		& 172.13.1.200 	& 255.255.255.252 & (/30) \\
 	\hline
 \end{tabular}
-
+\end{center}
 
 \newpage
 \subsubsection{Asignación IP a routers, servers y hosts}
-
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 	\hline
 	Subred & Dispositivo & Interface & Dirección & Máscara \\
@@ -104,23 +104,166 @@
 	\hline
 	 & R16 			& e0/0 	& 10.11.22.4 	& 255.255.255.0 \\
 	\hline
+	\hline
+	C & & & & \\
+	\hline
+	 & R1 			& e0/0 	& 10.11.23.1 	& 255.255.255.0 \\
+	\hline
+	 & R2 			& e0/0 	& 10.11.23.2 	& 255.255.255.0 \\
+	\hline
+	 & R3 			& e0/0 	& 10.11.23.3 	& 255.255.255.0 \\
+	\hline
+	 & R4 			& e0/0 	& 10.11.23.4 	& 255.255.255.0 \\
+	\hline
+	 & R5 			& e0/0 	& 10.11.23.5 	& 255.255.255.0 \\
+	\hline
+	 & Rvirtual 		& 		& 10.11.23.6 	& 255.255.255.0 \\
+	\hline
+	 & Host A 		& tap4 	& 10.11.23.7 	& 255.255.255.0 \\
+	\hline
+	\hline
+	D & & & & \\
+	\hline
+	 & R7 			& e0/2 	& 10.134.1.1 	& 255.255.255.0 \\
+	\hline
+	 & R8 			& e0/0  & 10.134.1.2 	& 255.255.255.0 \\
+	\hline
+	 & R9 			& e0/0 	& 10.134.1.3 	& 255.255.255.0 \\
+	\hline
+	 & Rvirtual 		& 		& 10.134.1.4 	& 255.255.255.0 \\
+	\hline
+	 & Host B 		& tap5 	& 10.134.1.5 	& 255.255.255.0 \\
+	\hline
+	 & TelServer 	& tap7 	& 10.134.1.130 	& 255.255.255.0 \\
+	\hline
+	\hline
+	E & & & & \\
+	\hline
+	 & TelServer 	& tap8 	& 10.134.5.129 	& 255.255.255.128 \\
+	\hline
+	 & R9 			& e0/1 	& 10.134.5.130 	& 255.255.255.128 \\
+	\hline
+	 & R10 			& e0/0 	& 10.134.5.131 	& 255.255.255.128 \\
+	\hline
+	 & R11 			& e0/0 	& 10.134.5.132 	& 255.255.255.128 \\
+	\hline
+	 & DNS 2 		& tap2 	& 10.134.5.133 	& 255.255.255.128 \\
+	\hline
+	\hline
+	F & & & & \\
+	\hline
+	 & R13 			& e0/1 	& 10.9.12.193 	& 255.255.255.192 \\
+	\hline
+	 & R14 			& e0/0 	& 10.9.12.194 	& 255.255.255.192 \\
+	\hline
+	 & R15 			& e0/0 	& 10.9.12.195 	& 255.255.255.192 \\
+	\hline
+	 & DNS Root 		& tap3 	& 10.9.12.196 	& 255.255.255.192 \\
+	\hline
+	 & Host C 		& tap6 	& 10.9.12.197 	& 255.255.255.192 \\
+	\hline
+	\hline
+	 G & & & & \\
+	\hline
+	 & R2 			& e0/1 	& 10.134.13.65 	& 255.255.255.224 \\
+	\hline
+	 & DNS 1 		& tap1 	& 10.134.13.66 	& 255.255.255.224 \\
+	\hline
+	\hline
+	H & & & & \\
+	\hline
+	 & R10 			& e0/1 	& 10.134.13.97 	& 255.255.255.224 \\
+	\hline
 \end{tabular}
+\end{center}
 
-
-
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 	\hline
 	Subred & Dispositivo & Interface & Dirección & Máscara \\
 	\hline
 	\hline
-	F & & & & \\
+	J & & & & \\
 	\hline
-	  &  &  &  &  \\
+	 & R8 		& e0/1 	& 10.134.13.129 	& 255.255.255.224 \\
+	\hline
+	 & R9 		& e0/3 	& 10.134.13.130 	& 255.255.255.224 \\
+	\hline
+	 & Rvirtual 	& 		& 10.134.13.131 & 255.255.255.224 \\
+	 \hline
+	 \hline
+	L & & & & \\
+	\hline
+	 & R12 		& e0/0 	& 10.134.13.161	& 255.255.255.224 \\
+	\hline
+	 & R16 		& e0/1 	& 10.134.13.162 	& 255.255.255.224 \\
+	\hline
+	\hline
+	M & & & & \\
+	\hline
+	 & R14 		& e0/2 	& 10.134.13.49 	& 255.255.255.240 \\
+	\hline
+	\hline
+	O & & & & \\
+	\hline
+	 & R3 		& e0/1 	& 10.134.13.45 	& 255.255.255.252 \\
+	\hline
+	 & R7 		& e0/1 	& 10.134.13.46 	& 255.255.255.252 \\
+	\hline
+	\hline
+	P & & & & \\
+	\hline
+	 & R9 		& e0/2 	& 10.134.13.41 	& 255.255.255.252 \\
+	\hline
+	 & R13 		& e0/2 	& 10.134.13.42 	& 255.255.255.252 \\
+	\hline
+	\hline
+	S1 & & & & \\
+	\hline
+	 & Internet 	& e0/2 	& 137.43.1.1 	& 255.255.255.252 \\
+	\hline
+	 & R6 		& e0/1 	& 137.43.1.2 	& 255.255.255.252 \\
+	\hline
+	\hline
+	S2 & & & & \\
+	\hline
+	 & Internet 	& e0/0 	& 137.43.1.5 	& 255.255.255.252 \\
+	\hline
+	 & R11 		& e0/1 	& 137.43.1.6 	& 255.255.255.252 \\
+	\hline
+	\hline
+	S3 & & & & \\
+	\hline
+	 & Internet 	& e0/1 	& 137.43.1.9 	& 255.255.255.252 \\
+	\hline
+	 & R12 		& e0/1 	& 137.43.1.10 	& 255.255.255.252 \\
+	\hline
+	\hline
+	T & & & & \\
+	\hline
+	 & R6 		& Tunnel10 & 10.134.13.37 & 255.255.255.252 \\
+	\hline
+	 & R11 		& Tunnel10 & 10.134.13.38 & 255.255.255.252 \\
+	\hline
+	\hline
+	V & & & & \\
+	\hline
+	 & R6 		& Tunnel20 & 10.134.13.33 & 255.255.255.252 \\
+	\hline
+	 & R12 		& Tunnel10 & 10.134.13.34 & 255.255.255.252 \\
+	\hline
+	\hline
+	X & & & & \\
+	\hline
+	 & R11 		& Tunnel20 & 10.134.13.29 & 255.255.255.252 \\
+	\hline
+	 & R12 		& Tunnel20 & 10.134.13.30 & 255.255.255.252 \\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{Asignación IP a routers en Frame Relay}
-
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Subred & Dispositivo & Interface & Dirección & Máscara & DLCI \\
@@ -129,11 +272,12 @@
 	 &  &  &  &  &  \\
 	\hline
 \end{tabular}
-
+\end{center}
 
 
 \subsection{Tablas de Ruteo Estático de Chos Malal}
 \subsubsection{R1}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -145,8 +289,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R2}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -158,9 +304,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
-
+\end{center}
 
 \subsubsection{R3}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -172,8 +319,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R4}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -185,8 +334,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R5}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -198,8 +349,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R6}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -211,11 +364,11 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
-
+\end{center}
 
 \subsection{Tablas de Ruteo Estático de Aluminé}
-
 \subsubsection{R12}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -225,9 +378,12 @@
  	  &  &  &  &  & 10 \\
 	\hline	
 	B & & & & &\\
+	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R13}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -239,8 +395,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R14}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -252,8 +410,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R15}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -265,8 +425,10 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \subsubsection{R16}
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
@@ -278,6 +440,7 @@
 	B & & & & &\\
 	\hline
 \end{tabular}
+\end{center}
 
 \newpage
 \section{Frame Relay}
@@ -374,13 +537,34 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
 
 \subsubsection{Internet}
 
-Dentro de la topología se simuló el servicio de Internet mediante un router C3600. El objetivo de la utlización del túnel GRE fue permitir el enrutamiento de direcciones privadas entre el par de routers que se comunican a través de Internet. La configuración de los túneles GRE se basó en el apunte brindado por la cátedra. 
+Dentro de la topología se simuló el servicio de Internet mediante un 
+router C3600.
+El objetivo de la utlización del túnel GRE fue permitir el enrutamiento de 
+direcciones privadas entre el par de routers que se comunican a través de 
+Internet.
+La configuración de los túneles GRE se basó en el apunte brindado por la 
+cátedra. 
 
-Se utilizaron tres direcciones públicas /30 para cada enlace ( R6-Internet, R11-Internet y R12-Internet) a partir de la dirección ip dedicada a Internet. Luego se le asignó una direccion privada /30 para el túnel que simula conectar directamente los routers R6 con R11, R6 con R12 y R11 con R12. 
+Se utilizaron tres direcciones públicas /30 para cada enlace ( R6-Internet, 
+R11-Internet y R12-Internet) a partir de la dirección ip dedicada a Internet.
+Luego se le asignó una direccion privada /30 para el túnel que simula 
+conectar directamente los routers R6 con R11, R6 con R12 y R11 con R12. 
 
-Lo que finalmente se obtiene, es un encapsulamiento de un paquete IP que tiene como destino una dirección privada dentro de otro paquete IP con direccionamiento público, más la existencia de un encabezado GRE. Los routers donde se configura el túnel son los encargados de manipular estos paquetes, armandolos y desarmandolos según corresponda.
+Lo que finalmente se obtiene, es un encapsulamiento de un paquete IP que 
+tiene como destino una dirección privada dentro de otro paquete IP con 
+direccionamiento público, más la existencia de un encabezado GRE.
+Los routers donde se configura el túnel son los encargados de manipular estos 
+paquetes, armandolos y desarmandolos según corresponda.
 
-Dentro del trabajo práctico, esto se traslada a la posibilidad de que tanto los dispositivos y las redes existenes del lado de R6 como las de R11 puedan comunicarse entre sí, a pesar de que sean redes privadas con un servicio de Internet en el medio. Para esto se encapsula el destino (10.xxx.xxx.xxx) con el encabezado GRE más otro encabezado IP con direccion pública (139.67.2.xxx). Este paquete atraviesa internet, y al llegar al otro lado del túnel, el router descarta el encabezado GRE y el paquete IP con direccion pública, para posteriormente entregarlo a quien corresponda.
+Dentro del trabajo práctico, esto se traslada a la posibilidad de que tanto 
+los dispositivos y las redes existenes del lado de R6 como las de R11 puedan 
+comunicarse entre sí, a pesar de que sean redes privadas con un servicio de 
+Internet en el medio.
+Para esto se encapsula el destino (10.xxx.xxx.xxx) con el encabezado GRE más 
+otro encabezado IP con direccion pública (139.67.2.xxx).
+Este paquete atraviesa internet, y al llegar al otro lado del túnel, 
+el router descarta el encabezado GRE y el paquete IP con direccion pública, 
+para posteriormente entregarlo a quien corresponda.
 
 {\small
 \begin{verbatim}
@@ -396,20 +580,44 @@ Dentro del trabajo práctico, esto se traslada a la posibilidad de que tanto los
 \input{./ospf.tex}
 \newpage
 \section{DNS}
-Para obtener la ip asociado a un nombre(o viceversa), cada host realiza la solicitud a su servidor DNS local, que corresponde a la zona en la que se encuentre. En la sede Chos Malal se corresponde el DNS 1 y para Junín de los Andes y Alumine corresponde el DNS 2. Cuando un servidor DNS no conoce un nombre de dominio y posee el mismo dominio de la empresa, este realiza una solicitud al DNS root que le responde con la dirección del otro servidor DNS para así consultar por la respuesta de la solicitud inicial, y esta manera se resolvería la solicitud de forma iterativa.
+Para obtener la ip asociado a un nombre(o viceversa), cada host realiza 
+la solicitud a su servidor DNS local, que corresponde a la zona en la que 
+se encuentre.
+En la sede Chos Malal se corresponde el DNS 1 y para Junín de los Andes y 
+Alumine corresponde el DNS 2.
+Cuando un servidor DNS no conoce un nombre de dominio y posee el mismo 
+dominio de la empresa, este realiza una solicitud al DNS root que le responde 
+con la dirección del otro servidor DNS para así consultar por la respuesta de 
+la solicitud inicial, y esta manera se resolvería la solicitud de forma 
+iterativa.
 
-Para la resolución de nombres de dominio y distinguir los diferentes hosts pertenecientes a cada sede, se agregaron dominios con el nombre de la sede al dominio que ya posee la empresa (neuquen.dc.fi.uba.ar). Un ejemplo podría seria, para el host A que se encuentra en al Red C (denominada como Concorde) perteneciente a la sede Chos Malal, su dominio asociado seria a.chosmalal.neuquen.dc.fi.uba.ar. Otro ejemplo podría ser del servidor FTP, que se encuentra en la red B (denominada como Boeing) en la sede Alumine con el nombre asociado de ftp.alumine.neuquen.dc.fi.uba.ar.
+Para la resolución de nombres de dominio y distinguir los diferentes hosts 
+pertenecientes a cada sede, se agregaron dominios con el nombre de la sede 
+al dominio que ya posee la empresa (neuquen.dc.fi.uba.ar).
+Un ejemplo sería, para el host A que se encuentra en al Red C (denominada 
+como Concorde) perteneciente a la sede Chos Malal, su dominio asociado sería 
+a.chosmalal.neuquen.dc.fi.uba.ar.
+Otro ejemplo podría ser del servidor FTP, que se encuentra en la red B 
+(denominada como Boeing) en la sede Alumine con el nombre asociado de 
+ftp.alumine.neuquen.dc.fi.uba.ar.
 
 \section{OPEN VPN}
 Se crearon 7 VPNs, una para cada red conectada a dispositivos físicos.
+
 \subsection{Servers}
-Los 7 VPN servers corren en paralelo en 7 puertos diferentes, en la misma PC que tiene la topología.
-Para cada uno, está configurada una interfaz tap en modo promiscuo, la cual escucha todos los paquetes que llegan.
-A través de NIO ethernet, se encuentran conectadas dichas interfaces a la LAN de la topología correspondiente.
+Los 7 VPN servers corren en paralelo en 7 puertos diferentes, en la misma PC 
+que tiene la topología.
+Para cada uno, está configurada una interfaz tap en modo promiscuo, la cual 
+escucha todos los paquetes que llegan.
+A través de NIO ethernet, se encuentran conectadas dichas interfaces a la LAN 
+de la topología correspondiente.
+
 \subsection{Clientes}
-Para cada cliente, se encuentra su archivo de configuración con la IP y puerto del servidor correspondiente, además de su certificado
-y otros parámetros.
-Al conectarse a una VPN, existe un script que configura la conexión y las rutas del dispositivo (i.e. su default gateway).
+Para cada cliente, se encuentra su archivo de configuración con la IP y 
+puerto del servidor correspondiente, además de su certificado y otros 
+parámetros.
+Al conectarse a una VPN, existe un script que configura la conexión y 
+las rutas del dispositivo (i.e. su default gateway).
 
 \newpage
 \section{Anexo}
