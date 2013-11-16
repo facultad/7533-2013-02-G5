@@ -17,27 +17,92 @@
 
 \section{Subnetting}
 \subsection{Asignación de direcciones IP a las redes}
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c c|}
 	\hline
-	Subred & Nombre & Hosts & Hosts máx. & Dirección & Máscara \\
+	Subred & Nombre 	& Hosts 	& Hosts máx. & Dirección 	& Máscara & \\
 	\hline
 	\hline
-	A &  &  &  &  &  \\
+	A & Airbus 	& 254 & 254 & 192.168.53.0 	& 255.255.255.0 & (/24) \\
+	\hline
+	B & Boeing 	& 234 & 254 & 10.11.22.0 	& 255.255.255.0 & (/24) \\
+	\hline
+	C & Concorde & 160 & 254 & 10.11.23.0 	& 255.255.255.0 & (/24) \\
+	\hline
+	D & Douglas 	& 137 & 254 & 10.134.1.0 	& 255.255.255.0 & (/24) \\
+	\hline
+	E & Embraer 	& 73 & 126 & 10.134.5.128 	& 255.255.255.128 & (/25) \\
+	\hline
+	F & Fokker 	& 53 & 62 & 10.9.12.192 		& 255.255.255.192 & (/26) \\
+	\hline
+	G & Goshawk 	& 27 & 30 & 10.134.13.64 	& 255.255.255.224 & (/27) \\
+	\hline
+	H & De Havilland & 25 & 30 & 10.134.13.96 & 255.255.255.224 & (/27) \\
+	\hline
+	J & Jumbo 	& 18 & 30 & 10.134.13.128 	& 255.255.255.224 & (/27) \\
+	\hline
+	L & Lockheed & 18 & 30 & 10.134.13.160 	& 255.255.255.224 & (/27) \\
+	\hline
+	M & Mikoyan 	& 7 & 14 & 10.134.13.48 	& 255.255.255.240 & (/28) \\
+	\hline
+	O & Osprey 	& 2 & 2 & 10.134.13.44 	& 255.255.255.252 & (/30) \\
+	\hline
+	P & Panavia 	& 2 & 2 & 10.134.13.40 	& 255.255.255.252 & (/30) \\
+	\hline
+	S & Saab 	& & 		& 137.43.1.0 	& 255.255.255.0 & (/24) \\
+	\hline
+	S1 & 		& 2 & 2 & 137.43.1.0 	& 255.255.255.252 & (/30) \\
+	\hline
+	S2 & 		& 2 & 2 & 137.43.1.4 	& 255.255.255.252 & (/30) \\
+	\hline
+	S3 & 		& 2 & 2 & 137.43.1.8 	& 255.255.255.252 & (/30) \\
+	\hline
+	T & Tupolev 	& 2 & 2 & 10.134.13.36 	& 255.255.255.252 & (/30) \\
+	\hline
+	V & Vector 	& 2 & 2 & 10.134.13.32 	& 255.255.255.252 & (/30) \\
+	\hline
+	X & Xingu 	& 2 & 2 & 10.134.13.28 	& 255.255.255.252 & (/30) \\
+	\hline
+	Y & Yakovlev & & 	& 172.13.1.192 	& 255.255.255.192 & (/26) \\
+	\hline
+	Y1 & 		& 2 & 2 & 172.13.1.192 	& 255.255.255.252 & (/30) \\
+	\hline
+	Y2 & 		& 2 & 2 & 172.13.1.196 	& 255.255.255.252 & (/30) \\
+	\hline
+	Y3 & 		& 2 & 2 & 172.13.1.200 	& 255.255.255.252 & (/30) \\
 	\hline
 \end{tabular}
 
 
-
+\newpage
 \subsubsection{Asignación IP a routers, servers y hosts}
 
 \begin{tabular}{|c|c|c|c|c|}
 	\hline
-	Subred & Dispocitivo & Interface & Dirección & Máscara \\
+	Subred & Dispositivo & Interface & Dirección & Máscara \\
 	\hline
 	\hline
-	A &  &  &  & \\
+	A & & & & \\
 	\hline
-	  & R2 &  &  &  \\
+	 & WebServer 	& tap0 	& 192.168.53.1 	& 255.255.255.0 \\
+	\hline
+	 & R4 			& e0/1 	& 192.168.53.2 	& 255.255.255.0 \\
+	\hline
+	 & R5 			& e0/1 	& 192.168.53.3 	& 255.255.255.0 \\
+	\hline
+	 & Rvirtual 		& 		& 192.168.53.4 	& 255.255.255.0 \\
+	\hline
+	 & R6 			& e0/0 	& 192.168.53.5 	& 255.255.255.0 \\
+	\hline
+	\hline
+	B & & & & \\
+	\hline
+	 & FTPServer 	& tap9 	& 10.11.22.1 	& 255.255.255.0 \\
+	\hline
+	 & R14 			& e0/1 	& 10.11.22.2 	& 255.255.255.0 \\
+	\hline
+	 & R15 			& e0/1  & 10.11.22.3 	& 255.255.255.0 \\
+	\hline
+	 & R16 			& e0/0 	& 10.11.22.4 	& 255.255.255.0 \\
 	\hline
 \end{tabular}
 
@@ -45,7 +110,7 @@
 
 \begin{tabular}{|c|c|c|c|c|}
 	\hline
-	Subred & Dispocitivo & Interface & Dirección & Máscara \\
+	Subred & Dispositivo & Interface & Dirección & Máscara \\
 	\hline
 	\hline
 	F & & & & \\
@@ -58,7 +123,7 @@
 
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Subred & Dispocitivo & Interface & Dirección & Máscara & DLCI \\
+	Subred & Dispositivo & Interface & Dirección & Máscara & DLCI \\
 	\hline	
 	\hline
 	 &  &  &  &  &  \\
@@ -71,7 +136,7 @@
 \subsubsection{R1}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\ % R1-R3
@@ -84,7 +149,7 @@
 \subsubsection{R2}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -98,7 +163,7 @@
 \subsubsection{R3}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -111,7 +176,7 @@
 \subsubsection{R4}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -124,7 +189,7 @@
 \subsubsection{R5}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -137,7 +202,7 @@
 \subsubsection{R6}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -153,7 +218,7 @@
 \subsubsection{R12}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -165,7 +230,7 @@
 \subsubsection{R13}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -178,7 +243,7 @@
 \subsubsection{R14}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -191,7 +256,7 @@
 \subsubsection{R15}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
@@ -204,7 +269,7 @@
 \subsubsection{R16}
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Metrica \\
+	Red & Dirección Red & Máscara & Next Hop & Dirección Next Hop & Métrica \\
 	\hline
 	\hline
 	A &  &  &  &  & 1\\
