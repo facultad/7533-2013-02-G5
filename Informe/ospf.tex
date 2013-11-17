@@ -1,48 +1,84 @@
 \section{OSPF}
 Se implementó OSPF para ruteo dinámico en la sede Junín de los Andes.
 
-Los routers distribuyen sus rutas estáticas en las actualizaciones LS Update que envían. Para evitar que envíen dicha información más allá de los límites de la sede, se pasivaron las interfaces correspondientes de aquellos routers en los bordes.
-
-\subsection{OSPF con VRRP}
-Los routers de Junín de los Andes que implementan VRRP tienen pasivadas aquellas interfaces en las que implementan dicho protocolo de redundancia estática. Esto es para evitar que informen rutas a través de sí mismos (con su IP real), en vez de a través del Master, como debería ser. Sin embargo, estos routers hablan entre sí (comando neighbor) porque actúan como uno solo y deben saber las rutas que tienen sus vecinos en VRRP.
-
-Lo que no tiene prohibido es aprender rutas por cualquier interfaz. Esto es necesario para no cohibir al protocolo en el caso de que estos routers tengan interfaces en los cuales no implementan VRRP, como es el caso de R9, conectado a la subnet N, por donde distribuye lo que aprendió de R7 y R8.
-
-Por otro lado, aquellos hosts que estén en las redes con routers en VRRP tienen como default gateway una entrada estática hacia el Master. 
-Si un router tiene que elegir la ruta de un paquete que no está en su tabla estática ni en las entradas que aprendió por OSPF, debe ser enviado hacia allí porque el destino debe estar del otro lado de la topología. Si no estuviera más allá del VRRP, la hubiera aprendido por OSPF.
+Los routers distribuyen sus rutas estáticas en las actualizaciones LS Update 
+que envían.
+Para evitar que envíen dicha información más allá de los límites de la sede, 
+se pasivaron las interfaces correspondientes de aquellos routers en los bordes.
 
 \subsection{Configuración de los Routers}
 \subsubsection{R7}
 {\small
 \begin{verbatim}
-
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute static subnets
+ passive-interface Ethernet0/0
+ passive-interface Ethernet0/1
+ network 10.134.1.0 0.0.0.255 area 0
+ network 172.13.1.192  0.0.0.3 area 0
+ network 172.13.1.200  0.0.0.3 area 0
+ network 10.134.13.44  0.0.0.3 area 0
+!
 \end{verbatim}
 }
 
 \subsubsection{R8}
 {\small
 \begin{verbatim}
-
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute static
+ network 10.134.1.0 0.0.0.255 area 0
+ network 10.134.13.128  0.0.0.31 area 0
+!
 \end{verbatim}
 }
 
 \subsubsection{R9}
 {\small
 \begin{verbatim}
-
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute static subnets
+ passive-interface Ethernet0/2
+ network 10.134.1.0 0.0.0.255 area 0
+ network 10.134.13.40  0.0.0.3 area 0
+ network 10.134.13.128  0.0.0.31 area 0
+ network 10.134.5.128 0.0.0.127 area 0
+!
 \end{verbatim}
 }
 
 \subsubsection{R10}
 {\small
 \begin{verbatim}
-
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute static
+ network 10.134.5.128 0.0.0.127 area 0
+ network 10.134.13.96  0.0.0.31 area 0
+!
 \end{verbatim}
 }
 
 \subsubsection{R11}
 {\small
 \begin{verbatim}
-
+!
+router ospf 100
+ log-adjacency-changes
+ redistribute static subnets
+ passive-interface Tunnel10
+ passive-interface Tunnel20
+ passive-interface Ethernet0/1
+ network 10.134.5.128 0.0.0.127 area 0
+ network 10.134.13.36  0.0.0.3 area 0
+ network 10.134.13.28  0.0.0.3 area 0
+!
 \end{verbatim}
 }
