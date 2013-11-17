@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#Asigno la misma ip a cada cliente (misma maquina fisica) 
+export ServerIP=192.168.1.101
+
 #Mato las conexiones anteriores
 pkill openvpn
 
