@@ -1,16 +1,16 @@
 #!/bin/sh
 
 #Definir las ips fisicas de cada host
-WebServerIP=157.92.48.169
-DNS1IP=157.92.48.169
-DNS2IP=157.92.48.169
-DNSROOTIP=157.92.48.169
-HOSTAIP=157.92.48.169
-HOSTBIP=157.92.48.169
-HOSTCIP=157.92.48.169
-TELNET1IP=157.92.48.169
-TELNET2IP=157.92.48.169
-FTPIP=157.92.48.169
+WebServerIP=192.168.1.104
+DNS1IP=192.168.1.105
+DNS2IP=192.168.1.107
+DNSROOTIP=192.168.1.108
+HOSTAIP=192.168.1.102
+HOSTBIP=192.168.1.102
+HOSTCIP=192.168.1.102
+TELNET1IP=192.168.1.104
+TELNET2IP=192.168.1.104
+FTPIP=192.168.1.104
 
 #Mato las conexiones anteriores
 echo "Terminando conexiones vpn anteriores"
@@ -33,7 +33,7 @@ sudo ifconfig tap0 promisc
 
 #DNS1
 echo "Conectando al DNS1 en $DNS1IP"
-exec sudo openvpn --port 26600 --remote $DNS1IP --dev tap1 --ifconfig 10.134.13.67 255.255.255.224 10.134.13.66 &
+exec sudo openvpn --port 25767 --remote $DNS1IP --dev tap1 --ifconfig 10.134.13.67 255.255.255.224 10.134.13.66 &
 sudo ifconfig tap1 promisc
 
 #DNS2
