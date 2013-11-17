@@ -269,8 +269,26 @@
 	Subred & Dispositivo & Interface & Dirección & Máscara & DLCI \\
 	\hline	
 	\hline
-	 &  &  &  &  &  \\
+	Y1 & & & & & \\
 	\hline
+	 & R1 	& s1/0.1 & 172.13.1.193 & 255.255.255.252 & 45 \\
+	\hline
+	 & R7 	& s1/0.1 & 172.13.1.194 & 255.255.255.252 & 17 \\
+	\hline
+	\hline
+	Y2 & & & & & \\
+	\hline
+	 & R1 	& s1/0.2 & 172.13.1.197 & 255.255.255.252 & 54 \\
+	\hline
+	 & R13 	& s1/0.1 & 172.13.1.198 & 255.255.255.252 & 36 \\
+	\hline
+	\hline
+	Y3 & & & & & \\
+	\hline
+	 & R7 	& s1/0.2 & 172.13.1.201 & 255.255.255.252 & 70 \\
+	\hline
+	 & R13 	& s1/0.2 & 172.13.1.202 & 255.255.255.252 & 64 \\
+	\hline 
 \end{tabular}
 \end{center}
 
@@ -447,16 +465,11 @@
 Para el armado de la red Frame Relay se usaron 6 \emph{Routers 3600}
 con las siguientes configuraciones de DLCI en cada uno.
 \subsection{FR1}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Interface In & DLCI In & Interface Out & DLCI Out \\
-\hline
-\hline
- s0/0 &  & Serial0/1 &  \\
-\hline
-\end{tabular}
+Para conectar los routers R1, R7 y R13 no se usó el FR1, por lo que el mismo 
+no fue configurado.
 
 \subsection{FR2}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Interface In & DLCI In & Interface Out & DLCI Out \\
@@ -465,8 +478,10 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
  s0/0 &  & Serial0/1 &  \\
 \hline
 \end{tabular}
+\end{center}
 
 \subsection{FR3}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Interface In & DLCI In & Interface Out & DLCI Out \\
@@ -475,8 +490,10 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
  s0/0 &  & Serial0/1 &  \\
 \hline
 \end{tabular}
+\end{center}
 
 \subsection{FR4}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Interface In & DLCI In & Interface Out & DLCI Out \\
@@ -485,8 +502,10 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
  s0/0 &  & Serial0/1 &  \\
 \hline
 \end{tabular}
+\end{center}
 
 \subsection{FR5}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Interface In & DLCI In & Interface Out & DLCI Out \\
@@ -495,8 +514,10 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
  s0/0 &  & Serial0/1 &  \\
 \hline
 \end{tabular}
+\end{center}
 
 \subsection{FR6}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Interface In & DLCI In & Interface Out & DLCI Out \\
@@ -505,6 +526,7 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
  s0/0 &  & Serial0/1 &  \\
 \hline
 \end{tabular}
+\end{center}
 
 \newpage
 \subsection{Esquema de la red Frame Relay}
