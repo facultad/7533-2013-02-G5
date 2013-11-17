@@ -33,7 +33,7 @@ sudo ifconfig tap0 promisc
 
 #DNS1
 echo "Conectando al DNS1 en $DNS1IP"
-exec sudo openvpn--port 26600 --remote $DNS1IP --dev tap1 --ifconfig 10.134.13.67 255.255.255.224 10.134.13.66 &
+exec sudo openvpn --port 26600 --remote $DNS1IP --dev tap1 --ifconfig 10.134.13.67 255.255.255.224 10.134.13.66 &
 sudo ifconfig tap1 promisc
 
 #DNS2
