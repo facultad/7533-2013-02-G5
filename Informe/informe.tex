@@ -465,8 +465,8 @@
 Para el armado de la red Frame Relay se usaron 6 \emph{Routers 3600}
 con las siguientes configuraciones de DLCI en cada uno.
 \subsection{FR1}
-Para conectar los routers R1, R7 y R13 no se usó el FR1, por lo que el mismo 
-no fue configurado.
+Para conectar los routers R1, R7 y R13 no se usó el FR1, por lo que las 
+interfaces del mismo no fueron configuradas.
 
 \subsection{FR2}
 \begin{center}
@@ -475,7 +475,13 @@ no fue configurado.
 Interface In & DLCI In & Interface Out & DLCI Out \\
 \hline
 \hline
- s0/0 &  & Serial0/1 &  \\
+Serial0/1 & 32 & Serial0/2 & 17 \\
+\hline
+Serial0/1 & 51 & Serial0/2 & 70 \\
+\hline
+Serial0/2 & 17 & Serial0/1 & 32 \\
+\hline
+Serial0/2 & 70 & Serial0/1 & 51 \\
 \hline
 \end{tabular}
 \end{center}
@@ -487,7 +493,13 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
 Interface In & DLCI In & Interface Out & DLCI Out \\
 \hline
 \hline
- s0/0 &  & Serial0/1 &  \\
+Serial0/0 & 81 & Serial0/2 & 36 \\
+\hline
+Serial0/1 & 49 & Serial0/2 & 64 \\
+\hline
+Serial0/2 & 36 & Serial0/0 & 81 \\
+\hline
+Serial0/2 & 64 & Serial0/1 & 49 \\
 \hline
 \end{tabular}
 \end{center}
@@ -499,7 +511,13 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
 Interface In & DLCI In & Interface Out & DLCI Out \\
 \hline
 \hline
- s0/0 &  & Serial0/1 &  \\
+Serial0/0 & 81 & Serial0/1 & 29 \\
+\hline
+Serial0/1 & 29 & Serial0/0 & 81 \\
+\hline
+Serial0/1 & 68 & Serial0/2 & 73 \\
+\hline
+Serial0/2 & 73 & Serial0/1 & 68 \\
 \hline
 \end{tabular}
 \end{center}
@@ -511,7 +529,13 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
 Interface In & DLCI In & Interface Out & DLCI Out \\
 \hline
 \hline
- s0/0 &  & Serial0/1 &  \\
+Serial0/0 & 29 & Serial0/1 & 54 \\
+\hline
+Serial0/0 & 68 & Serial0/1 & 45 \\
+\hline
+Serial0/1 & 45 & Serial0/0 & 68 \\
+\hline
+Serial0/1 & 54 & Serial0/0 & 29 \\
 \hline
 \end{tabular}
 \end{center}
@@ -523,7 +547,13 @@ Interface In & DLCI In & Interface Out & DLCI Out \\
 Interface In & DLCI In & Interface Out & DLCI Out \\
 \hline
 \hline
- s0/0 &  & Serial0/1 &  \\
+Serial0/1 & 32 & Serial0/3 & 73 \\
+\hline
+Serial0/1 & 51 & Serial0/2 & 49 \\
+\hline
+Serial0/2 & 49 & Serial0/1 & 51 \\
+\hline
+Serial0/3 & 73 & Serial0/1 & 32 \\
 \hline
 \end{tabular}
 \end{center}
