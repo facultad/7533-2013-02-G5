@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Configuración de Servidor DNS para la Zona Chos Malal
+## Configuración de Servidor DNS root
 
 ## Definición de constantes
 
@@ -211,7 +211,8 @@ function comprobar_bind_instalado
 	if [ -d "/etc/bind" ]; then
 		echo "Mensaje: bind9 instalado."
 	else
-		finalizar_y_salir "1" "Bind no instalado"
+		echo "Instalando bind9"
+		apt-get install bind9
 	fi	
 
 	return 0

@@ -34,7 +34,7 @@ ARCH_CONF_INVERSO_172_13_1="db.local.172.13.1" #Y
 ARCH_CONF_INVERSO_137_43="db.local.137.43" #S
 
 
-IP_DNS_ROOT="${_IP_DNS_ROOT:-10.9.12.197}"
+IP_DNS_ROOT="${_IP_DNS_ROOT:-10.9.12.196}"
 
 IP_DNS="${_IP_DNS_2:-127.0.0.1}"
 SERVIDOR_DNS_ROOT="${DOMINIO_DNS_ROOT}	3600000	A	${IP_DNS_ROOT}"
@@ -415,7 +415,8 @@ function comprobar_bind_instalado
 	if [ -d "/etc/bind" ]; then
 		echo "Mensaje: bind9 instalado."
 	else
-		finalizar_y_salir "1" "Bind no instalado"
+		echo "Instalando bind9"
+		apt-get install bind9
 	fi	
 
 	return 0
