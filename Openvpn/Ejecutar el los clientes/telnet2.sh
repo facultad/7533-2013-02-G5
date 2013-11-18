@@ -1,9 +1,14 @@
 #!/bin/sh
 
-#Definir las ips fisicas del server
-ServerIP=192.168.1.101
+name="telnet2"
 
-#Telnet 2
-echo "Conectando al servidor en $ServerIP"
-sudo ifconfig tap8 promisc
-openvpn --remote $ServerIP --port 26400 --dev tap8 --ifconfig 10.134.5.129 255.255.255.128 10.134.5.130
+pkill openvpn
+
+chmod 775 ./Interfaces/conf_$name.sh
+./Interfaces/conf_$name.sh &
+
+sleep 5
+
+chmod 775 ./Gateways/gate_$name.sh
+./Gateways/gate_$name.sh
+

@@ -1,13 +1,14 @@
 #!/bin/sh
 
-#Definir las ips fisicas del server
-ServerIP=192.168.1.101
+name="dns1"
 
-#DNS 1
-echo "Conectando al servidor en $ServerIP"
-sudo ifconfig tap1 promisc
-openvpn --remote $ServerIP --port 25767 --dev tap1 --ifconfig 10.134.13.66 255.255.255.224 10.134.13.67
+pkill openvpn
 
+chmod 775 ./Interfaces/conf_$name.sh
+./Interfaces/conf_$name.sh &
 
+sleep 5
 
+chmod 775 ./Gateways/gate_$name.sh
+./Gateways/gate_$name.sh
 
