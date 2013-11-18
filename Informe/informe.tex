@@ -654,6 +654,7 @@
 \end{tabular}
 \end{center}
 
+\newpage
 \subsection{Tablas de Ruteo Estático de sede Junín de los Andes}
 En esta sede se utiliza ruteo dinámico, sin embargo, se configuran las tablas 
 de ruteo estático en los routers que se encuentran en el borde de la sede, 
@@ -712,6 +713,7 @@ Los routers que se encuentran en el borde de la sede son R7, R9 y R11.
 \end{tabular}
 \end{center}
 
+\newpage
 \subsection{Tablas de Ruteo Estático de sede Aluminé}
 \subsubsection{R12}
 \begin{center}
@@ -1106,7 +1108,9 @@ Serial0/3 & 73 & Serial0/1 & 32 \\
 
 \newpage
 \subsection{Esquema de la red Frame Relay}
-%	\includegraphics[scale=0.35,angle=90]{./FR.png}~\\
+\begin{center}
+	\includegraphics[scale=0.70]{diagramas/Frame_Relay.png} \\
+\end{center}
 
 
 \newpage
@@ -1195,34 +1199,51 @@ La configuración de los túneles GRE se basó en el apunte brindado por la
 cátedra. 
 
 Se utilizaron tres direcciones públicas /30 para cada enlace ( R6-Internet, 
-R11-Internet y R12-Internet) a partir de la dirección ip dedicada a Internet.
-Luego se le asignó una direccion privada /30 para el túnel que simula 
+R11-Internet y R12-Internet) a partir de la dirección IP dedicada a Internet.
+Luego se le asignó una direccion privada /30 para cada túnel que simula 
 conectar directamente los routers R6 con R11, R6 con R12 y R11 con R12. 
 
 Lo que finalmente se obtiene, es un encapsulamiento de un paquete IP que 
 tiene como destino una dirección privada dentro de otro paquete IP con 
 direccionamiento público, más la existencia de un encabezado GRE.
-Los routers donde se configura el túnel son los encargados de manipular estos 
-paquetes, armandolos y desarmandolos según corresponda.
+Los routers donde se configuran los túneles son los encargados de manipular 
+estos paquetes, armándolos y desarmándolos según corresponda.
 
 Dentro del trabajo práctico, esto se traslada a la posibilidad de que tanto 
 los dispositivos y las redes existenes del lado de R6 como las de R11 puedan 
 comunicarse entre sí, a pesar de que sean redes privadas con un servicio de 
 Internet en el medio.
-Para esto se encapsula el destino (10.xxx.xxx.xxx) con el encabezado GRE más 
-otro encabezado IP con direccion pública (139.67.2.xxx).
+Para esto se encapsula el destino (10.134.13.xxx) con el encabezado GRE más 
+otro encabezado IP con direccion pública (137.43.1.xxx).
 Este paquete atraviesa internet, y al llegar al otro lado del túnel, 
 el router descarta el encabezado GRE y el paquete IP con direccion pública, 
 para posteriormente entregarlo a quien corresponda.
 
 {\small
 \begin{verbatim}
-
+!
+interface Ethernet0/0
+ description Link to R11
+ ip address 137.43.1.5 255.255.255.252
+ half-duplex
+!
+interface Ethernet0/1
+ description Link to R12
+ ip address 137.43.1.9 255.255.255.252
+ half-duplex
+!
+interface Ethernet0/2
+ description Link to R6
+ ip address 137.43.1.1 255.255.255.252
+ half-duplex
+!
 \end{verbatim}
 }
 
 \subsection{Esquema del túnel GRE}
-%	\includegraphics[scale=0.50]{./GRE.png}~\\
+\begin{center}
+	\includegraphics[scale=0.70]{diagramas/Tunel_GRE.png} \\
+\end{center}
 
 \newpage
 \input{./vrrp.tex}
