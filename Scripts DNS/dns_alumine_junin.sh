@@ -186,18 +186,18 @@ declare -a RESOLUCIONES_ALUMINE=(
 "R14.mikoyan	IN	A	10.134.13.49;" \
 \
 "boeing	IN	A	10.11.22.0 ; Red B /24 "  \
-"R14.boeing	IN	A	10.1.22.2;" \
-"R15.boeing	IN	A	10.1.22.3;" \
-"R16.boeing	IN	A	10.1.22.4;" \
-"ftp.boeing	IN	A	10.1.22.1;Ubicado en la red B, con masc /24 " \
+"R14.boeing	IN	A	10.11.22.2;" \
+"R15.boeing	IN	A	10.11.22.3;" \
+"R16.boeing	IN	A	10.11.22.4;" \
+"ftp.boeing	IN	A	10.11.22.1;Ubicado en la red B, con masc /24 " \
 \
 "lockheed	IN	A	10.134.13.160 ; Red L /27 "  \
-"R12.lockheed	IN	A	10.34.13.161;" \
-"R16.lockheed	IN	A	10.34.13.162;" \
+"R12.lockheed	IN	A	10.134.13.161;" \
+"R16.lockheed	IN	A	10.134.13.162;" \
 \
 "panavia	IN	A	10.134.13.40 ; Red P /30 "  \
-"R9.panavia	IN	A	10.34.13.41;" \
-"R13.panavia	IN	A	10.34.13.42;" \
+"R9.panavia	IN	A	10.134.13.41;" \
+"R13.panavia	IN	A	10.134.13.42;" \
 )
 
 declare -a RESOLUCIONES_JUNIN=(

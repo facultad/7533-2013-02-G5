@@ -40,6 +40,8 @@ OPCIONES_CONF="options {
 	
      allow-recursion { none; };
 
+     //query-source address * port 53;
+
      listen-on port 53 { any; };
 
      allow-query { any;
@@ -155,15 +157,15 @@ declare -a RESOLUCIONES_INV_10=(
 )
 
 declare -a RESOLUCIONES_INV_192_168=(
-"45	IN	NS	ns1.goshawk.chosmalal.neuquen.dc.fi.uba.ar." \
+"53	IN	NS	ns1.goshawk.chosmalal.neuquen.dc.fi.uba.ar." \
 )
 
 declare -a RESOLUCIONES_INV_172_13=(
-"3	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
+"1	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
 )
 
 declare -a RESOLUCIONES_INV_137_43=(
-"2	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
+"1	IN	NS	ns2.embraer.junin.neuquen.dc.fi.uba.ar." \
 )
 
 
