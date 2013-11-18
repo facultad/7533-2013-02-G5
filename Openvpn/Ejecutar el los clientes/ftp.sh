@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Definir las ips fisicas del server
-#ServerIP=192.168.1.101
+ServerIP=192.168.1.101
 
 #Ftp
 echo "Conectando al servidor en $ServerIP"
