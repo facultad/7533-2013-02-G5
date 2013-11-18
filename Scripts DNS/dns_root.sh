@@ -85,7 +85,7 @@ zone \"43.137.in-addr.arpa\" {
 
 
 declare -a RESOLUCIONES=(
-"	IN	NS	nsroot.anguila.talampaya ; " \
+"	IN	NS	nsroot.fokker.alumine ; " \
 "nsroot.fokker.alumine	IN	A	${IP_DNS_ROOT} ; "  \
 "chosmalal	IN	NS	ns1.goshawk.chosmalal ; " \
 "ns1.goshawk.chosmalal	IN	A	${IP_DNS_1} ; "  \
