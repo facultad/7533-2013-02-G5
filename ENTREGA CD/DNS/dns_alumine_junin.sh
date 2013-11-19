@@ -172,42 +172,42 @@ zone \"${DOMINIO_EMPRESA}\" IN {
 
 
 declare -a DIRECTAS_ALUMINE=(
-"fokker	IN	A	10.9.12.192 ; Red F /26 " \
+"fokker	IN	A	10.9.12.192 ;  " \
 "R13.fokker	IN	A	10.9.12.193;" \
 "R14.fokker	IN	A	10.9.12.194;" \
 "R15.fokker	IN	A	10.9.12.195;" \
 "nsroot.fokker	IN	A	10.9.12.196;" \
 "c.fokker	IN	A	10.9.12.197;" \
 \
-"mikoyan	IN	A	10.134.13.48 ; Red M /28 "  \
+"mikoyan	IN	A	10.134.13.48 ;"  \
 "R14.mikoyan	IN	A	10.134.13.49;" \
 \
-"boeing	IN	A	10.11.22.0 ; Red B /24 "  \
+"boeing	IN	A	10.11.22.0 ;"  \
 "R14.boeing	IN	A	10.11.22.2;" \
 "R15.boeing	IN	A	10.11.22.3;" \
 "R16.boeing	IN	A	10.11.22.4;" \
 "ftp.boeing	IN	A	10.11.22.1;" \
 \
-"lockheed	IN	A	10.134.13.160 ; Red L /27 "  \
+"lockheed	IN	A	10.134.13.160 ;"  \
 "R12.lockheed	IN	A	10.134.13.161;" \
 "R16.lockheed	IN	A	10.134.13.162;" \
 \
-"panavia	IN	A	10.134.13.40 ; Red P /30 "  \
+"panavia	IN	A	10.134.13.40 ; "  \
 "R9.panavia	IN	A	10.134.13.41;" \
 "R13.panavia	IN	A	10.134.13.42;" \
 )
 
 declare -a DIRECTAS_JUNIN=(
-"jumbo	IN	A	10.134.13.128 ; Red J /27 "  \
+"jumbo	IN	A	10.134.13.128 ;"  \
 "R8.jumbo	IN	A	10.134.13.129;" \
 "R9.jumbo	IN	A	10.134.13.130;" \
 "masterVRRP.jumbo	IN	A	10.134.13.131;" \
 \
-"osprey	IN	A	10.134.13.44 ; Red O /30 "  \
+"osprey	IN	A	10.134.13.44 ; "  \
 "R3.osprey	IN	A	10.134.13.45;" \
 "R7.osprey	IN	A	10.134.13.46;" \
 \
-"douglas	IN	A	10.134.1.0 ; Red D /24 "  \
+"douglas	IN	A	10.134.1.0 ; "  \
 "telnet.douglas	IN	A	10.134.1.130;" \
 "R7.douglas	IN	A	10.134.1.1;" \
 "R8.douglas	IN	A	10.134.1.2;" \
@@ -215,25 +215,25 @@ declare -a DIRECTAS_JUNIN=(
 "b.douglas	IN	A	10.134.1.5;" \
 "masterVRRP.douglas	IN	A	10.134.1.4;" \
 \
-"havilland	IN	A	10.134.13.96 ; Red H /27 "  \
+"havilland	IN	A	10.134.13.96 ;"  \
 "R10.havilland	IN	A	10.134.13.97;" \
 \
-"embraer	IN	A	10.134.5.128 ; Red E /25 "  \
+"embraer	IN	A	10.134.5.128 ; "  \
 "telnet.embraer	IN	A	10.134.5.129;" \
 "R9.embraer	IN	A	10.134.5.130;" \
 "R10.embraer	IN	A	10.134.5.131;" \
 "R11.embraer	IN	A	10.134.5.132;" \
 "ns2.embraer	IN	A	10.134.5.133;" \
 \
-"tupolev	IN	A	10.134.13.36 ; Red T privada /30 "  \
+"tupolev	IN	A	10.134.13.36 ;"  \
 "R6.tupolev	IN	A	10.134.13.37;" \
 "R11.tupolev	IN	A	10.134.13.38;" \
 \
-"vector	IN	A	10.134.13.32 ; Red V privada /30 "  \
+"vector	IN	A	10.134.13.32 ; "  \
 "R6.vector	IN	A	10.134.13.33;" \
 "R12.vector	IN	A	10.134.13.34;" \
 \
-"xingu	IN	A	10.134.13.28 ; Red X privada /30 "  \
+"xingu	IN	A	10.134.13.28 ; "  \
 "R11.xingu	IN	A	10.134.13.29;" \
 "R12.xingu	IN	A	10.134.13.30;" \
 \
@@ -268,12 +268,12 @@ declare -a INVERSAS_10_9_12_192_197=(
 )
 
 declare -a INVERSAS_10_134_13_48_49=(
-"48	IN	PTR	mikoyan.alumine.${DOMINIO_DNS}; 	Red M  /28 " \
+"48	IN	PTR	mikoyan.alumine.${DOMINIO_DNS}; " \
 "49	IN	PTR	R14.mikoyan.alumine.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_11_22=(
-"0	IN	PTR	boeing.alumine.${DOMINIO_DNS}; 	Red B  /24 " \
+"0	IN	PTR	boeing.alumine.${DOMINIO_DNS}; 	" \
 "2	IN	PTR	R14.boeing.alumine.${DOMINIO_DNS}; " \
 "3	IN	PTR	R15.boeing.alumine.${DOMINIO_DNS}; " \
 "4	IN	PTR	R16.boeing.alumine.${DOMINIO_DNS}; " \
@@ -281,32 +281,32 @@ declare -a INVERSAS_10_11_22=(
 )
 
 declare -a INVERSAS_10_134_13_160_162=(
-"160	IN	PTR	lockheed.alumine.${DOMINIO_DNS}; 	Red L  /27 " \
+"160	IN	PTR	lockheed.alumine.${DOMINIO_DNS};" \
 "161	IN	PTR	R12.lockheed.alumine.${DOMINIO_DNS}; " \
 "162	IN	PTR	R16.lockheed.alumine.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_13_40_42=(
-"40	IN	PTR	panavia.alumine.${DOMINIO_DNS}; 	Red P  /30 " \
+"40	IN	PTR	panavia.alumine.${DOMINIO_DNS};" \
 "41	IN	PTR	R9.panavia.alumine.${DOMINIO_DNS}; " \
 "42	IN	PTR	R13.panavia.alumine.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_13_128_131=(
-"128	IN	PTR	jumbo.junin.${DOMINIO_DNS}; 	Red J  /27 " \
+"128	IN	PTR	jumbo.junin.${DOMINIO_DNS}; " \
 "129	IN	PTR	R8.jumbo.junin.${DOMINIO_DNS}; " \
 "130	IN	PTR	R9.jumbo.junin.${DOMINIO_DNS}; " \
 "131	IN	PTR	masterVRRP.jumbo.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_13_44_46=(
-"44	IN	PTR	osprey.junin.${DOMINIO_DNS}; 	Red O  /30 " \
+"44	IN	PTR	osprey.junin.${DOMINIO_DNS};" \
 "45	IN	PTR	R3.osprey.junin.${DOMINIO_DNS}; " \
 "46	IN	PTR	R7.osprey.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_1=(
-"0	IN	PTR	douglas.junin.${DOMINIO_DNS}; 	Red D  /24 " \
+"0	IN	PTR	douglas.junin.${DOMINIO_DNS}; " \
 "130	IN	PTR	telnet.douglas.junin.${DOMINIO_DNS}; " \
 "1	IN	PTR	R7.douglas.junin.${DOMINIO_DNS}; " \
 "2	IN	PTR	R8.douglas.junin.${DOMINIO_DNS}; " \
@@ -316,12 +316,12 @@ declare -a INVERSAS_10_134_1=(
 )
 
 declare -a INVERSAS_10_134_13_96_97=(
-"96	IN	PTR	havilland.junin.${DOMINIO_DNS}; 	Red H  /27 " \
+"96	IN	PTR	havilland.junin.${DOMINIO_DNS}; " \
 "97	IN	PTR	R10.havilland.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_5_128_133=(
-"128	IN	PTR	embraer.junin.${DOMINIO_DNS}; 	Red E  /25 " \
+"128	IN	PTR	embraer.junin.${DOMINIO_DNS}; " \
 "129	IN	PTR	telnet.embraer.junin.${DOMINIO_DNS}; " \
 "130	IN	PTR	R9.embraer.junin.${DOMINIO_DNS}; " \
 "131	IN	PTR	R10.embraer.junin.${DOMINIO_DNS}; " \
@@ -330,19 +330,19 @@ declare -a INVERSAS_10_134_5_128_133=(
 )
 
 declare -a INVERSAS_10_134_13_36_38=(
-"36	IN	PTR	tupolev.junin.${DOMINIO_DNS}; 	Red T /30 " \
+"36	IN	PTR	tupolev.junin.${DOMINIO_DNS}; " \
 "37	IN	PTR	R6.tupolev.junin.${DOMINIO_DNS}; " \
 "38	IN	PTR	R11.tupolev.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_13_32_34=(
-"32	IN	PTR	vector.junin.${DOMINIO_DNS}; 	Red V /30 " \
+"32	IN	PTR	vector.junin.${DOMINIO_DNS}; " \
 "33	IN	PTR	R6.vector.junin.${DOMINIO_DNS}; " \
 "34	IN	PTR	R12.vector.junin.${DOMINIO_DNS}; " \
 )
 
 declare -a INVERSAS_10_134_13_28_30=(
-"28	IN	PTR	xingu.junin.${DOMINIO_DNS}; 	Red X /30 " \
+"28	IN	PTR	xingu.junin.${DOMINIO_DNS}; " \
 "29	IN	PTR	R11.xingu.junin.${DOMINIO_DNS}; " \
 "30	IN	PTR	R12.xingu.junin.${DOMINIO_DNS}; " \
 )

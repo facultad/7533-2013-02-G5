@@ -73,10 +73,10 @@ zone \"53.168.192.in-addr.arpa\" IN {
 
 
 declare -a DIRECTAS=(
-"goshawk	IN	A	10.134.13.64 ; Red G  /27 " \
+"goshawk	IN	A	10.134.13.64 ; " \
 "R2.goshawk	IN	A	10.134.13.65;" \
 \
-"concorde	IN	A	10.11.23.0 ; Red C /24 "  \
+"concorde	IN	A	10.11.23.0 ;  "  \
 "R1.concorde	IN	A	10.11.23.1;" \
 "R2.concorde	IN	A	10.11.23.2;" \
 "R3.concorde	IN	A	10.11.23.3;" \
@@ -85,7 +85,7 @@ declare -a DIRECTAS=(
 "masterVRRP.concorde	IN	A	10.11.23.6;" \
 "a.concorde	IN	A	10.11.23.7;" \
 \
-"airbus		IN	A	192.168.53.0 ;   Red A  /24" \
+"airbus		IN	A	192.168.53.0 ; " \
 "R4.airbus	IN	A	192.168.53.2;" \
 "R5.airbus	IN	A	192.168.53.3;" \
 "R6.airbus	IN	A	192.168.53.5;" \
@@ -95,12 +95,12 @@ declare -a DIRECTAS=(
 
 
 declare -a INVERSAS_10_134_13_64_65=(
-"64	IN	PTR	goshawk.${DOMINIO_DNS} ; Red G  /27 " \
+"64	IN	PTR	goshawk.${DOMINIO_DNS} ; " \
 "65	IN	PTR	R2.goshawk.${DOMINIO_DNS};" \
 )
 
 declare -a INVERSAS_10_11_23=(
-"0	IN	PTR	concorde.${DOMINIO_DNS} ; Red C  /24 " \
+"0	IN	PTR	concorde.${DOMINIO_DNS} ; " \
 "1	IN	PTR	R1.concorde.${DOMINIO_DNS};" \
 "2	IN	PTR	R2.concorde.${DOMINIO_DNS};" \
 "3	IN	PTR	R3.concorde.${DOMINIO_DNS};" \
@@ -112,7 +112,7 @@ declare -a INVERSAS_10_11_23=(
 
 declare -a INVERSAS_192_168_53=(
 "1	IN	PTR	www.airbus.${DOMINIO_DNS} ;" \
-"0	IN	PTR	airbus.${DOMINIO_DNS};	Red A  /24 "  \
+"0	IN	PTR	airbus.${DOMINIO_DNS};"  \
 "2	IN	PTR	R4.airbus.${DOMINIO_DNS};" \
 "3	IN	PTR	R5.airbus.${DOMINIO_DNS};" \
 "5	IN	PTR	R6.airbus.${DOMINIO_DNS};" \
