@@ -18,9 +18,6 @@ echo "done"
 	rm -r /$SRV/ftp/*
 
 	cp -r servers/ftp/$SRV/ftp /$SRV/
-	# comandos get y put para transferir archivos.
-
-
 
 
 	echo "Instalando Telnet"

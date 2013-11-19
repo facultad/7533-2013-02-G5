@@ -14,7 +14,7 @@ case "$1" in
 	then
 		echo "El FTP está corriendo."
 		case "$2" in
-		stop)
+		off)
 			service vsftpd stop
 			echo "Stopping FTP"
 		;;
@@ -24,15 +24,12 @@ case "$1" in
 
 	echo "El FTP no esta corriendo."
 	case "$2" in	
-		start)
+		on)
 			service vsftpd start	
 			echo "Iniciando FTP.."
 		;;
 		esac
 	;;
-
-
-
 
 	
 	#Telnet 
@@ -42,7 +39,7 @@ case "$1" in
 	then
 		echo "Telnet está corriendo."
 		case "$2" in
-		stop)
+		off)
 			service xinetd stop
 			echo "Stopping Telnet"
 		;;
@@ -51,7 +48,7 @@ case "$1" in
 	fi
 	echo "Telnet No esta corriendo."
 	case "$2" in	
-		start)
+		on)
 			service xinetd start	
 			echo "Iniciando Telnet.."
 		;;
@@ -66,7 +63,7 @@ case "$1" in
 	then
 		echo "El servidor Apache2 está corriendo."
 		case "$2" in
-		stop)
+		off)
 			service apache2 stop
 			echo "Stopping web server"
 		;;
@@ -76,7 +73,7 @@ case "$1" in
 
 	echo "El Servidor no Apache2 esta corriendo."
 	case "$2" in	
-		start)
+		on)
 			service apache2 start	
 			echo "Iniciando servidor Apache2.."
 		;;
