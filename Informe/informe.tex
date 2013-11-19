@@ -1301,7 +1301,20 @@ Otro ejemplo podría ser del servidor FTP, que se encuentra en la red B
 ftp.alumine.neuquen.dc.fi.uba.ar.
 
 \section{OPEN VPN}
-Se crearon 7 VPNs, una para cada red conectada a dispositivos físicos.
+Se crearon 10 VPNs, una para cada red conectada a dispositivos físicos. Cada una de estas 
+está representada por una interfaz tap distinta.\\
+Para levantar un escenario de prueba y configurar el openvpn, se procede
+de la siguiente manera, en el equipo que será el servidor y correrá la topología 
+del gns3, se deberá ejecutar como superusuario el script "server.sh" ubicado dentro de la carpeta
+"Openvpn/Ejecutar en el servidor(GNS3)". Este script eliminará todas las configuraciones
+previas del openvpn, destruirá las interfaces (si hay alguna) y volvera a levantarlas todas.
+En este punto ya se puede abrir la topologia del gns3 en el equipo servidor.\\
+En cada equipo que sea un cliente (dns, host o servidor web) se deberá ejecutar el 
+script correspondiente en "Openvpn/Ejecutar en el cliente". Por ejemplo, si quiero
+que mi equipo sea el dns 1, debo ejecutar como superusuario el script "dns1.sh".\\
+Cada uno de estos scripts para los clientes, destruirá interfaces anteriores del 
+openvpn, cargará la nueva interfaz y configurará los default gateways. Si en el 
+destino esta encendido un servidor, se establece la conexión con el mismo.
 
 \subsection{Servers}
 Los 7 VPN servers corren en paralelo en 7 puertos diferentes, en la misma PC 
