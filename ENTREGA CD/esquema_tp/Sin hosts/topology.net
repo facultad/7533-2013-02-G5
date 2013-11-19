@@ -1,0 +1,689 @@
+autostart = False
+[127.0.0.1:7202]
+    workingdir = /tmp
+    udp = 10200
+    [[3640]]
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
+        idlepc = 0x604eb200
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ROUTER Internet]]
+        model = 3640
+        console = 2021
+        aux = 2521
+        cnfg = configs/Internet.cfg
+        slot0 = NM-4E
+        e0/0 = R11 e0/1
+        e0/1 = R12 e0/1
+        e0/2 = R6 e0/1
+        symbol = cloud
+        x = 515.714862201
+        y = -5.02943725152
+        z = 1.0
+        hx = 60.8377502485
+        hy = -27.8284271247
+[127.0.0.1:7203]
+    workingdir = /tmp
+    udp = 10300
+    [[3640]]
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
+        idlepc = 0x604ec500
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ROUTER FR3]]
+        model = 3640
+        console = 2129
+        aux = 2529
+        cnfg = configs/FR3.cfg
+        slot0 = NM-4T
+        s0/0 = FR4 s0/0
+        s0/1 = FR6 s0/2
+        s0/2 = R13 s1/0
+        symbol = frame_relay_switch
+        x = -870.0
+        y = 158.0
+    [[ROUTER FR2]]
+        model = 3640
+        console = 2121
+        aux = 2521
+        cnfg = configs/FR2.cfg
+        slot0 = NM-4T
+        s0/0 = FR1 s0/0
+        s0/1 = FR6 s0/1
+        s0/2 = R7 s1/0
+        symbol = frame_relay_switch
+        x = -742.917964368
+        y = 40.8700576851
+    [[ROUTER FR1]]
+        model = 3640
+        console = 2127
+        aux = 2527
+        cnfg = configs/FR1.cfg
+        slot0 = NM-4T
+        s0/0 = FR2 s0/0
+        s0/1 = FR6 s0/0
+        symbol = frame_relay_switch
+        x = -812.0
+        y = -64.0
+    [[ROUTER FR6]]
+        model = 3640
+        console = 2123
+        aux = 2523
+        cnfg = configs/FR6.cfg
+        slot0 = NM-4T
+        s0/0 = FR1 s0/1
+        s0/1 = FR2 s0/1
+        s0/2 = FR3 s0/1
+        s0/3 = FR4 s0/2
+        symbol = frame_relay_switch
+        x = -881.999999999
+        y = 37.9999999999
+    [[ROUTER FR5]]
+        model = 3640
+        console = 2131
+        aux = 2531
+        cnfg = configs/FR5.cfg
+        slot0 = NM-4T
+        s0/0 = FR4 s0/1
+        s0/1 = R1 s1/0
+        symbol = frame_relay_switch
+        x = -925.0
+        y = -67.0
+    [[ROUTER FR4]]
+        model = 3640
+        console = 2125
+        aux = 2525
+        cnfg = configs/FR4.cfg
+        slot0 = NM-4T
+        s0/0 = FR3 s0/0
+        s0/1 = FR5 s0/0
+        s0/2 = FR6 s0/3
+        symbol = frame_relay_switch
+        x = -989.0
+        y = 36.0
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10000
+    [[3640]]
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
+        idlepc = 0x604eb200
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ETHSW SW15]]
+        1 = access 1 R2 e0/1
+        2 = access 1 nio_gen_eth:tap1
+        x = -651.5
+        y = -456.0
+    [[ETHSW b4]]
+        1 = access 1 b5 2
+        2 = access 1 nio_gen_eth:tap0
+        x = 456.646319706
+        y = -400.666088965
+        z = 1.0
+    [[ETHSW b5]]
+        1 = access 1 HUB4 4
+        2 = access 1 b4 1
+        x = 250.171139599
+        y = -406.322943215
+        z = 1.0
+    [[ETHSW b1]]
+        1 = access 1 HUB1 3
+        2 = access 1 HUB2 1
+        x = -612.499133448
+        y = -383.695526217
+        z = 1.0
+    [[ETHSW b2]]
+        1 = access 1 HUB3 2
+        2 = access 1 R5 e0/0
+        x = -188.235064736
+        y = -307.327993849
+        z = 1.0
+    [[ETHSW b3]]
+        1 = access 1 HUB2 2
+        2 = access 1 HUB3 1
+        x = -394.710244843
+        y = -389.352380466
+        z = 1.0
+    [[ETHSW HUB3]]
+        1 = access 1 b3 2
+        2 = access 1 b2 1
+        3 = access 1 R4 e0/0
+        4 = access 1 nio_gen_eth:tap4
+        x = -216.519335984
+        y = -428.950360213
+        z = 1.0
+    [[ETHSW HUB2]]
+        1 = access 1 b1 2
+        2 = access 1 b3 1
+        3 = access 1 R3 e0/0
+        x = -550.273736704
+        y = -256.416305603
+        z = 1.0
+    [[ETHSW HUB1]]
+        1 = access 1 R2 e0/0
+        2 = access 1 R1 e0/0
+        3 = access 1 b1 1
+        x = -785.033188058
+        y = -363.896536344
+        z = 1.0
+    [[ETHSW HUB5]]
+        1 = access 1 R7 e0/2
+        2 = access 1 R8 e0/0
+        3 = access 1 R9 e0/0
+        4 = access 1 nio_gen_eth:tap5
+        5 = access 1 nio_gen_eth:tap7
+        x = -377.739682094
+        y = -13.1715728753
+        z = 1.0
+        hx = 6.06985931288
+        hy = -26.4142135624
+    [[ETHSW HUB4]]
+        1 = access 1 R4 e0/1
+        2 = access 1 R5 e0/1
+        3 = access 1 R6 e0/0
+        4 = access 1 b5 1
+        x = 103.092929113
+        y = -321.470129473
+        z = 1.0
+    [[ROUTER R4]]
+        model = 3640
+        console = 2006
+        aux = 2506
+        cnfg = configs/R4.cfg
+        slot0 = NM-4E
+        e0/0 = HUB3 3
+        e0/1 = HUB4 1
+        x = -35.8284271247
+        y = -426.465078839
+        z = 1.0
+    [[ROUTER R5]]
+        model = 3640
+        console = 2007
+        aux = 2507
+        cnfg = configs/R5.cfg
+        slot0 = NM-4E
+        e0/0 = b2 2
+        e0/1 = HUB4 2
+        x = -41.4852813742
+        y = -236.960461481
+        z = 1.0
+    [[ROUTER R6]]
+        model = 3640
+        console = 2008
+        aux = 2508
+        cnfg = configs/R6.cfg
+        slot0 = NM-4E
+        e0/0 = HUB4 3
+        e0/1 = Internet e0/2
+        x = 354.49451609
+        y = -194.53405461
+        z = 1.0
+    [[ROUTER R7]]
+        model = 3640
+        console = 2009
+        aux = 2509
+        cnfg = configs/R7.cfg
+        slot0 = NM-4E
+        e0/1 = R3 e0/1
+        e0/2 = HUB5 1
+        slot1 = NM-4T
+        s1/0 = FR2 s0/2
+        x = -649.597113195
+        y = -13.5147186258
+        z = 1.0
+    [[ROUTER R1]]
+        model = 3640
+        console = 2003
+        aux = 2503
+        cnfg = configs/R1.cfg
+        slot0 = NM-4E
+        e0/0 = HUB1 2
+        slot1 = NM-4T
+        s1/0 = FR5 s0/1
+        x = -874.871283174
+        y = -242.61731573
+        z = 1.0
+        hx = 18.7421875
+        hy = -30.6568542495
+    [[ROUTER R2]]
+        model = 3640
+        console = 2004
+        aux = 2504
+        cnfg = configs/R2.cfg
+        slot0 = NM-4E
+        e0/0 = HUB1 1
+        e0/1 = SW15 1
+        x = -893.403245743
+        y = -452.58997052
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3640
+        console = 2005
+        aux = 2505
+        cnfg = configs/R3.cfg
+        slot0 = NM-4E
+        e0/0 = HUB2 3
+        e0/1 = R7 e0/1
+        x = -378.068109219
+        y = -214.333044483
+        z = 1.0
+    [[ROUTER R8]]
+        model = 3640
+        console = 2010
+        aux = 2510
+        cnfg = configs/R8.cfg
+        slot0 = NM-4E
+        e0/0 = HUB5 2
+        e0/1 = R9 e0/3
+        x = -601.862048458
+        y = 105.107647738
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = /tmp
+    udp = 10100
+    [[3640]]
+        image = /root/ios/IOS/c3640-js-mz.124-10.bin
+        idlepc = 0x604eb200
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ETHSW SW14]]
+        1 = access 1 R10 e0/1
+        x = 199.5
+        y = -67.0
+    [[ETHSW SW16]]
+        1 = access 1 R14 e0/2
+        x = -791.5
+        y = 484.0
+    [[ETHSW HUB8]]
+        1 = access 1 R14 e0/1
+        2 = access 1 R15 e0/1
+        3 = access 1 R16 e0/0
+        4 = access 1 nio_gen_eth:tap9
+        x = -301.372149726
+        y = 521.401153702
+        z = 1.0
+    [[ETHSW HUB7]]
+        1 = access 1 R13 e0/1
+        2 = access 1 R14 e0/0
+        3 = access 1 R15 e0/0
+        4 = access 1 nio_gen_eth:tap6
+        5 = access 1 nio_gen_eth:tap3
+        x = -581.386435076
+        y = 351.695526217
+        z = 1.0
+    [[ETHSW HUB6]]
+        1 = access 1 R9 e0/1
+        2 = access 1 R10 e0/0
+        3 = access 1 R11 e0/0
+        4 = access 1 nio_gen_eth:tap8
+        5 = access 1 nio_gen_eth:tap2
+        x = -94.8969696197
+        y = 40.5685424949
+        z = 1.0
+        hx = -17.9717712475
+        hy = -21.4644660941
+    [[ROUTER R16]]
+        model = 3640
+        console = 2018
+        aux = 2518
+        cnfg = configs/R16.cfg
+        slot0 = NM-4E
+        e0/0 = HUB8 3
+        e0/1 = R12 e0/0
+        x = 37.7106781187
+        y = 379.636651714
+        z = 1.0
+    [[ROUTER R14]]
+        model = 3640
+        console = 2016
+        aux = 2516
+        cnfg = configs/R14.cfg
+        slot0 = NM-4E
+        e0/0 = HUB7 2
+        e0/1 = HUB8 1
+        e0/2 = SW16 1
+        x = -573.229580827
+        y = 464.489465456
+        z = 1.0
+    [[ROUTER R15]]
+        model = 3640
+        console = 2017
+        aux = 2517
+        cnfg = configs/R15.cfg
+        slot0 = NM-4E
+        e0/0 = HUB7 3
+        e0/1 = HUB8 2
+        x = -332.813275223
+        y = 342.867099092
+        z = 1.0
+    [[ROUTER R12]]
+        model = 3640
+        console = 2014
+        aux = 2514
+        cnfg = configs/R12.cfg
+        slot0 = NM-4E
+        e0/0 = R16 e0/1
+        e0/1 = Internet e0/1
+        x = 382.778787338
+        y = 260.842712475
+        z = 1.0
+    [[ROUTER R13]]
+        model = 3640
+        console = 2015
+        aux = 2515
+        cnfg = configs/R13.cfg
+        slot0 = NM-4E
+        e0/1 = HUB7 1
+        e0/2 = R9 e0/2
+        slot1 = NM-4T
+        s1/0 = FR3 s0/2
+        x = -768.391052434
+        y = 252.3574311
+        z = 1.0
+        hx = -22.890625
+        hy = 38.0
+    [[ROUTER R10]]
+        model = 3640
+        console = 2012
+        aux = 2512
+        cnfg = configs/R10.cfg
+        slot0 = NM-4E
+        e0/0 = HUB6 2
+        e0/1 = SW14 1
+        x = -77.2548339959
+        y = -73.9116882454
+        z = 1.0
+    [[ROUTER R11]]
+        model = 3640
+        console = 2013
+        aux = 2513
+        cnfg = configs/R11.cfg
+        slot0 = NM-4E
+        e0/0 = HUB6 3
+        e0/1 = Internet e0/0
+        x = 211.759451354
+        y = 28.9116882454
+        z = 1.0
+    [[ROUTER R9]]
+        model = 3640
+        console = 2011
+        aux = 2511
+        cnfg = configs/R9.cfg
+        slot0 = NM-4E
+        e0/0 = HUB5 3
+        e0/1 = HUB6 1
+        e0/2 = R13 e0/2
+        e0/3 = R8 e0/1
+        x = -276.244732728
+        y = 116.592929113
+        z = 1.0
+        hx = 55.5117401217
+        hy = 43.5893577751
+[GNS3-DATA]
+    configs = configs
+    m11 = 0.353553390593
+    m22 = 0.353553390593
+    [[NOTE 1]]
+        text = 10.134.13.96/27
+        x = 28.8040405071
+        y = -75.0197692596
+        color = "#ff0000"
+    [[NOTE 2]]
+        text = Tunel R6-R11 10.134.13.36/30\nTunel R6-R12 10.134.13.32/30\nTunel R11-R12 10.134.13.28/30
+        x = 590.246824769
+        y = 105.597546471
+        color = "#ff0000"
+    [[NOTE 3]]
+        text = .6
+        x = 273.581602355
+        y = 17.9264068712
+        color = "#0000ff"
+    [[NOTE 4]]
+        text = .45
+        x = -383.655987698
+        y = -163.002525317
+        color = "#0000ff"
+    [[NOTE 5]]
+        text = .130
+        x = -318.655987698
+        y = 112.997474683
+        color = "#0000ff"
+    [[NOTE 6]]
+        text = 10.11.22.0/24
+        x = -215.975613382
+        y = 523.049206511
+        color = "#ff0000"
+    [[NOTE 7]]
+        text = 10.11.23.0/24
+        x = -535.750829383
+        y = -351.158946291
+        color = "#ff0000"
+    [[NOTE 8]]
+        text = 10.134.13.64/27
+        x = -794.551911297
+        y = -471.568109219
+        color = "#ff0000"
+    [[NOTE 9]]
+        text = .1
+        x = -582.655987698
+        y = 16.9974746831
+        color = "#0000ff"
+    [[NOTE 10]]
+        text = 10.134.13.160/27
+        x = 151.840620434
+        y = 298.13160108
+        color = "#ff0000"
+    [[NOTE 11]]
+        text = 10.9.12.192/26
+        x = -609.445742855
+        y = 282.632034356
+        color = "#ff0000"
+    [[NOTE 12]]
+        text = .46
+        x = -598.655987698
+        y = -47.0025253169
+        color = "#0000ff"
+    [[NOTE 13]]
+        text = .1
+        x = 547.211111394
+        y = -42.5416305603
+        color = "#0000ff"
+    [[NOTE 14]]
+        text = 10.134.1.0/24
+        x = -408.364573775
+        y = 51.3994949366
+        color = "#ff0000"
+    [[NOTE 15]]
+        text = 10.134.13.40/30
+        x = -463.195959493
+        y = 197.98023074
+        color = "#ff0000"
+    [[NOTE 16]]
+        text = .2
+        x = 427.730880654
+        y = -168.548773235
+        color = "#0000ff"
+    [[NOTE 17]]
+        text = .5
+        x = 490.642568899
+        y = 3.92640687123
+        color = "#0000ff"
+    [[NOTE 18]]
+        text = .131
+        x = -44.3128419472
+        y = -29.245166004
+        color = "#0000ff"
+    [[NOTE 19]]
+        text = .10
+        x = 454.600938339
+        y = 242.585353162
+        color = "#0000ff"
+    [[NOTE 20]]
+        text = 10.134.13.128/27
+        x = -486.195959493
+        y = 103.98023074
+        color = "#ff0000"
+    [[NOTE 21]]
+        text = .42
+        x = -707.655987698
+        y = 231.997474683
+        color = "#0000ff"
+    [[NOTE 22]]
+        text = .5
+        x = 342.474567362
+        y = -230.867532368
+        color = "#0000ff"
+    [[NOTE 23]]
+        text = 137.43.1.8/30
+        x = 381.83766184
+        y = 116.803607232
+        color = "#ff0000"
+    [[NOTE 24]]
+        text = .3
+        x = -269.655987698
+        y = 75.9974746831
+        color = "#0000ff"
+    [[NOTE 25]]
+        text = .2
+        x = 35.5902243269
+        y = -410.070634536
+        color = "#0000ff"
+    [[NOTE 26]]
+        text = 10.134.13.44/30
+        x = -603.047293939
+        y = -118.441125497
+        color = "#ff0000"
+    [[NOTE 27]]
+        text = 10.134.5.128/25
+        x = -118.793939239
+        y = 91.9507934889
+        color = "#ff0000"
+    [[NOTE 28]]
+        text = .41
+        x = -294.120453792
+        y = 148.926406871
+        color = "#0000ff"
+    [[NOTE 29]]
+        text = 10.134.13.48/28
+        x = -703.612265096
+        y = 452.136651714
+        color = "#ff0000"
+    [[NOTE 30]]
+        text = .132
+        x = 170.344012302
+        y = 64.9974746831
+        color = "#0000ff"
+    [[NOTE 31]]
+        text = .9
+        x = 573.394877578
+        y = 62.7792206136
+        color = "#0000ff"
+    [[NOTE 32]]
+        text = .129
+        x = -553.526045383
+        y = 137.118795027
+        color = "#0000ff"
+    [[NOTE 33]]
+        text = 137.43.1.0/30
+        x = 487.903679019
+        y = -89.2695526217
+        color = "#ff0000"
+    [[NOTE 34]]
+        text = 137.43.1.4/30
+        x = 365.310749906
+        y = 6.11017305532
+        color = "#ff0000"
+    [[NOTE 35]]
+        text = .3
+        x = 29.9333700774
+        y = -233.494949366
+        color = "#0000ff"
+    [[NOTE 36]]
+        text = .97
+        x = -15.3214639185
+        y = -86.0147186257
+        color = "#0000ff"
+    [[NOTE 37]]
+        text = .2
+        x = -547.655987698
+        y = 79.9974746831
+        color = "#0000ff"
+    [[NOTE 38]]
+        text = .130
+        x = -206.655987698
+        y = 123.997474683
+        color = "#0000ff"
+    [[NOTE 39]]
+        text = 192.168.53.0/24
+        x = 190.024386618
+        y = -326.950793489
+        color = "#ff0000"
+    [[Cloud FTPServer]]
+        x = -266.176190233
+        y = 397.749350086
+        connections = HUB8:4:nio_gen_eth:tap9
+    [[Cloud Host_A]]
+        x = -249.205627485
+        y = -566.744299452
+        connections = HUB3:4:nio_gen_eth:tap4
+    [[Cloud Host_C]]
+        x = -445.781312655
+        y = 247.842712475
+        connections = HUB7:4:nio_gen_eth:tap6
+    [[Cloud Host_B]]
+        x = -375.685858225
+        y = -117.710678119
+        connections = HUB5:4:nio_gen_eth:tap5
+    [[Cloud Telnet]]
+        x = -280.318325857
+        y = -29.3431457505
+        connections = HUB6:4:nio_gen_eth:tap8 HUB5:5:nio_gen_eth:tap7
+    [[Cloud DNS2]]
+        x = 44.9507934888
+        y = 100.764501988
+        connections = HUB6:5:nio_gen_eth:tap2
+    [[Cloud DNS1]]
+        x = -696.097113195
+        y = -583.714862201
+        connections = SW15:2:nio_gen_eth:tap1
+    [[Cloud WebServer]]
+        x = 432.445309579
+        y = -521.489465456
+        connections = b4:2:nio_gen_eth:tap0
+    [[Cloud DNS_Root]]
+        x = -793.5
+        y = 359.0
+        connections = HUB7:5:nio_gen_eth:tap3
+    [[SHAPE 1]]
+        type = rectangle
+        x = -923.48145623
+        y = -482.246824769
+        width = 1510.38008461
+        height = 356.381817718
+        z = -2.0
+    [[SHAPE 2]]
+        type = rectangle
+        x = -796.696751706
+        y = 217.489465456
+        width = 1298.24805026
+        height = 364.867099092
+        z = -2.0
+    [[SHAPE 3]]
+        type = ellipse
+        x = -997.0
+        y = -113.0
+        width = 314.0
+        height = 326.0
+        border_style = 2
+        z = -2.0
+    [[SHAPE 4]]
+        type = rectangle
+        x = -676.0
+        y = -96.4802307407
+        width = 1038.0
+        height = 288.499566724
+        z = -4.0
