@@ -1,0 +1,11 @@
+$TTL 86400
+ 
+@ IN  SOA    nsroot.fokker.alumine.neuquen.dc.fi.uba.ar. root.alumine.neuquen.dc.fi.uba.ar. (
+        1       ;
+        3600    ;
+        1800    ;
+        604800  ;
+        86400   ;
+)
+
+	IN	NS	nsroot.fokker.alumine.neuquen.dc.fi.uba.ar.
