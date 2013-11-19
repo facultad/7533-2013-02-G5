@@ -23,10 +23,10 @@ ARCH_CONF_INVERSO_192_168="db.local.192_168"
 IP_DNS_ROOT="${_IP_DNS_ROOT:-10.9.12.197}"
 IP_DNS="${IP_DNS_ROOT}"
 
-IP_DNS_1="${_IP_DNS_1:-0.0.0.0}"
+IP_DNS_1="${_IP_DNS_1:-10.134.13.66}"
 DOMINIO_DNS_1="chosmalal.${DOMINIO_DNS_ROOT}"
 
-IP_DNS_2="${_IP_DNS_2:-0.0.0.0}"
+IP_DNS_2="${_IP_DNS_2:-10.134.5.133}"
 DOMINIO_DNS_2="alumine.${DOMINIO_DNS_ROOT}"
 DOMINIO_DNS_2_1="junin.${DOMINIO_DNS_ROOT}"
 
@@ -172,46 +172,31 @@ declare -a RESOLUCIONES_INV_137_43=(
 
 
 ## Funciones auxiliares
-
-function finalizar_y_salir 
+function exit_conf 
 {
 	if [ "$1" = "0" ];then 
-		echo "Configuracion Exitosa."
+		echo "DNS OK"
 	else
-		echo "Fin: Error $1 : ${2}."
+		echo "Error: $1 : ${2}."
 	fi
-
 	exit $1
 }
 
-
-function comprobar_usuario_root 
+function validate_root
 {
+	#chequeo que sea root
 	if [ "$USER" != "root" ]; then
-		echo "Debe iniciar la ejecucion como usuario root"
-		finalizar_y_salir "5" "No es usuario Root"
+		echo "Debe ejecutar como root"
+		exit_conf "5" "No es usuario Root"
 	fi
 
 	return 0
 }
 
-
-function comprobar_archivos_respaldados 
+function validate_bind9
 {
-	if [ "${ARCHIVOS_RESPALDADOS:-FALSE}" = "TRUE" ]; then 
-		echo "Msj: Existen archivos de respaldo."
-	else
-		finalizar_y_salir "2" "No existen archivos de respaldos"
-	fi
-	return 0
-}
-
-function comprobar_bind_instalado 
-{
-	declare local msj_retorno
-
 	if [ -d "/etc/bind" ]; then
-		echo "Mensaje: bind9 instalado."
+		echo "bind9 instalado."
 	else
 		echo "Instalando bind9"
 		apt-get install bind9
@@ -220,28 +205,15 @@ function comprobar_bind_instalado
 	return 0
 }
 
-function comprobaciones
+function validaciones
 {
-	comprobar_usuario_root
-
-	#comprobar_archivos_respaldados
-
-	comprobar_bind_instalado
-	configurar_ip_local
+	validate_root
+	validate_bind9
 }
 
-function configurar_ip_local 
+function write_named_conf 
 {	
-	echo "Configurando Ip Local..."
-	echo "(Falta hacer... si es necesario)"
-	
-	return 0
-}
-
-
-function cargar_named_conf 
-{	
-	reemplazar_en_archivo "${DIR_BIND}/named.conf" "include" "//include"
+	file_replace "${DIR_BIND}/named.conf" "include" "//include"
 	
 	echo "include \"${DIR_BIND}/named.conf.local\";" >> "${DIR_BIND}/named.conf";
 	
@@ -250,23 +222,21 @@ function cargar_named_conf
 	return 0
 }
 
-function reemplazar_en_archivo 
+function file_replace 
 {	
 	if [ $# -eq 3 ]; then
 
-		declare local arch_aux="auxiliar.tmp"
+		declare local aux="aux.tmp"
 		
-		sed "s%$2%$3%g" $1 > "$arch_aux"
+		sed "s%$2%$3%g" $1 > "$aux"
 		
 		rm "$1"
-		mv "$arch_aux" "$1"
-
+		mv "$aux" "$1"
 	fi
-
 		return 0
 }
 
-function cargar_named_conf_local 
+function write_named_conf_local 
 {	
 	echo -e "$OPCIONES_CONF" > "${DIR_BIND}/named.conf.local"
 	echo -e "$ZONAS" >> "${DIR_BIND}/named.conf.local"
@@ -276,10 +246,10 @@ function cargar_named_conf_local
 
 
 
-function cargar_dbs 
+function write_resoluciones 
 {	
-	reemplazar_en_archivo "${DIR_BIND}/${ARCH_CONFIGURACION}" "localhost" "${DOMINIO_DNS}" 
-	reemplazar_en_archivo "${DIR_BIND}/${ARCH_CONFIGURACION}" "127.0.0.1" "${IP_DNS}" 
+	file_replace "${DIR_BIND}/${ARCH_CONFIGURACION}" "localhost" "${DOMINIO_DNS}" 
+	file_replace "${DIR_BIND}/${ARCH_CONFIGURACION}" "127.0.0.1" "${IP_DNS}" 
 
 	cp "${ARCH_CONFIGURACION}" "${DIR_BIND}/${ARCH_CONF_ROOT}"
 	cp "${ARCH_CONFIGURACION_INV}" "${DIR_BIND}/${ARCH_CONF_INVERSO_10}"
@@ -324,56 +294,36 @@ function cargar_dbs
 }
 
 
-function iniciar_bind 
-{
-	echo "Iniciando BIND..."
+
+function start_bind9 {
+	echo "Starting bind9"
 	/etc/init.d/bind9 restart
 
 	if [ "$?" != "0" ];then 
-		finalizar_y_salir "3" "Error al iniciar BIND"
+		exit_conf "3" "Error iniciando bind9"
 	fi
 
 	return 0
 }
 
-function informar_dns_corriendo 
-{	
-	echo "
-***********************************************************************************
-***********************************************************************************
-***                                                                             ***
-***      Corriendo Demonio de Servidor DNS en zona ${NOMBRE_ZONA}		***
-***                                                                             ***
-***                     IP DNS: ${IP_DNS}					***
-***                                                                             ***
-***********************************************************************************
-***********************************************************************************
 
-"
-	return 0
-}
-
-function cargar_confs
+function write_confs
 {
-	cargar_named_conf
-	cargar_named_conf_local
-	cargar_dbs
+	write_named_conf
+	write_named_conf_local
+	write_resoluciones
 }
 
 
 
-## Cuerpo del script
+echo "Dns root"
 
-echo
-echo "Configurando Zona: \"${NOMBRE_ZONA}\"..."
-echo
+validaciones
 
-comprobaciones
+write_confs
 
-cargar_confs
+start_bind9
 
-iniciar_bind
+echo "Servidor dns root corriendo"
 
-informar_dns_corriendo
-
-finalizar_y_salir "0"
+exit_conf "0"
