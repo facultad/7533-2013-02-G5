@@ -1301,24 +1301,12 @@ Otro ejemplo podría ser del servidor FTP, que se encuentra en la red B
 ftp.alumine.neuquen.dc.fi.uba.ar.
 
 \section{OPEN VPN}
-Se crearon 10 VPNs, una para cada red conectada a dispositivos físicos. Cada una de estas 
-está representada por una interfaz tap distinta.\\
-Para levantar un escenario de prueba y configurar el openvpn, se procede
-de la siguiente manera, en el equipo que será el servidor y correrá la topología 
-del gns3, se deberá ejecutar como superusuario el script "server.sh" ubicado dentro de la carpeta
-"Openvpn/Ejecutar en el servidor(GNS3)". Este script eliminará todas las configuraciones
-previas del openvpn, destruirá las interfaces (si hay alguna) y volvera a levantarlas todas.
-En este punto ya se puede abrir la topologia del gns3 en el equipo servidor.\\
-En cada equipo que sea un cliente (dns, host o servidor web) se deberá ejecutar el 
-script correspondiente en "Openvpn/Ejecutar en el cliente". Por ejemplo, si quiero
-que mi equipo sea el dns 1, debo ejecutar como superusuario el script "dns1.sh".\\
-Cada uno de estos scripts para los clientes, destruirá interfaces anteriores del 
-openvpn, cargará la nueva interfaz y configurará los default gateways. Si en el 
-destino esta encendido un servidor, se establece la conexión con el mismo.
+Se crearon 10 VPNs, una para cada red conectada a dispositivos físicos.
+Cada una de estas está representada por una interfaz tap distinta.
 
 \subsection{Servers}
-Los 7 VPN servers corren en paralelo en 7 puertos diferentes, en la misma PC 
-que tiene la topología.
+Los 10 VPN servers corren en paralelo en 10 puertos diferentes, en la misma 
+PC que tiene la topología.
 Para cada uno, está configurada una interfaz tap en modo promiscuo, la cual 
 escucha todos los paquetes que llegan.
 A través de NIO ethernet, se encuentran conectadas dichas interfaces a la LAN 
@@ -1329,11 +1317,97 @@ Para cada cliente, existe un script que configura la conexión y
 las rutas del dispositivo (i.e. su default gateway) para crear el VPN.
 
 \newpage
+\section{Simulación}
+El procedimiento para simular la topología en el laboratorio es el siguiente:
+
+\begin{enumerate}
+\item Se identifican 6 PCs con los siguientes nombres:
+	\begin{itemize}
+	\item GNS3
+	\item DNSROOT
+	\item DNS1
+	\item DNS2
+	\item SERVERS
+	\item HOSTS
+	\end{itemize}
+	
+\item Cambiar a usuario root ejecutando \texttt{sudo su} en todas las PCs.
+
+\item Asignación de IPs
+	\begin{enumerate}
+	\item En GNS3 editar el script 
+		``./Openvpn/Ejecutar en el servidor (GNS3)/server.sh'' y asignar las IPs 
+		correspondientes del resto de las PCs.
+	\item En DNSROOT editar el script 
+		``./Openvpn/Ejecutar en los clientes/Interfaces/conf\_dns\_root.sh'' y 
+		asignar la IP de la PC donde correrá GNS3.
+	\item En DNS1 editar el script 
+		``./Openvpn/Ejecutar en los clientes/Interfaces/conf\_dns1.sh'' y asignar la 
+		IP de la PC donde correrá GNS3.
+	\item En DNS2 editar el script 
+		``./Openvpn/Ejecutar en los clientes/Interfaces/conf\_dns2.sh'' y asignar la 
+		IP de la PC donde correrá GNS3.
+	\item En SERVERS editar los siguientes scripts y asignar la IP de la PC donde 
+		correrá GNS3:
+		\begin{itemize}
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_telnet1.sh
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_telnet2.sh
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_ftp.sh
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_webserver.sh
+		\end{itemize}
+	\item En HOSTS editar los siguientes scripts y asignar la IP de la PC donde 
+		correrá GNS3:
+		\begin{itemize}
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_host\_a.sh
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_host\_b.sh
+		\item ./Openvpn/Ejecutar en los clientes/Interfaces/conf\_host\_c.sh
+		\end{itemize}
+	\end{enumerate}
+	
+	\item Creación de los túneles entre GNS3 y el resto de las PCs:
+	\begin{enumerate}
+	\item Ejecutar el script 
+		``./Openvpn/Ejecutar en el servidor (GNS3)/server.sh'' en la PC GNS3 
+		(verificar se hayan creado las 10 interfaces tap).
+	\item Cargar e iniciar la topología ``./esquema\_tp/topology.net'' en GNS3 
+		en la PC GNS3.
+	\item Ejecutar el script ``./Openvpn/Ejecutar en los clientes/dns\_root.sh'' 
+		en la PC DNSROOT (verificar se haya creado la interface tap).
+	\item Ejecutar el script ``./Openvpn/Ejecutar en los clientes/dns1.sh'' en 
+		la PC DNS1 (verificar se haya creado la interface tap).
+	\item Ejecutar el script ``./Openvpn/Ejecutar en los clientes/dns2.sh'' en 
+		la PC DNS2 (verificar se haya creado la interface tap).
+	\item Ejecutar los siguientes scripts en la PC SERVERS (dependiendo de qué 
+		servidor se desea emular):
+		\begin{itemize}
+		\item ./Openvpn/Ejecutar en los clientes/telnet1.sh
+		\item ./Openvpn/Ejecutar en los clientes/telnet2.sh
+		\item ./Openvpn/Ejecutar en los clientes/ftp.sh
+		\item ./Openvpn/Ejecutar en los clientes/webserver.sh
+		\end{itemize}
+	\item Ejecutar los siguientes scripts en la PC HOSTS (dependiendo de qué 
+		host se desea emular):
+		\begin{itemize}
+		\item ./Openvpn/Ejecutar en los clientes/host\_a.sh
+		\item ./Openvpn/Ejecutar en los clientes/host\_b.sh
+		\item ./Openvpn/Ejecutar en los clientes/host\_c.sh
+		\end{itemize}
+	\end{enumerate}
+\item Iniciar servicios en servidores:
+	\begin{itemize}
+	\item DNSROOT: Ejecutar script ``./DNS/dns\_root.sh''
+	\item DNS1: Ejecutar script ``./DNS/dns\_chosmalal.sh''
+	\item DNS2: Ejecutar script ``./DNS/dns\_alumine\_junin.sh''
+	\item SERVERS: Ejecutar script ``./servers\_install.sh''
+	\end{itemize}
+\end{enumerate}
+
+\newpage
 \section{Anexo}
 \subsection{Topología}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.45,angle=90]{diagramas/topologia.png} \\
+	\includegraphics[scale=0.42,angle=90]{diagramas/topologia.png} \\
 \end{figure}
 
 \subsection{Topología con redes marcadas}
